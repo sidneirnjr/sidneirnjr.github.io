@@ -1,4 +1,4 @@
-"""Remove o fundo branco que sobrou entre as pernas do mascote do Prontyn e gera o webp."""
+"""Remove o fundo branco que sobrou entre as pernas e acima do braço do mascote do Prontyn e gera o webp."""
 import sys
 from PIL import Image
 
@@ -11,10 +11,11 @@ def claro(p, lim):
     r, g, b, a = p
     return a > 0 and min(r, g, b) > lim and max(r, g, b) - min(r, g, b) < 28
 
-# preenche a partir de um ponto entre as pernas, pegando branco e cinza bem claro (sombra do fundo)
-seed = (205, 330)
-assert claro(px[seed], 200), px[seed]
-st, area = [seed], {seed}
+# preenche a partir de pontos no fundo que ficou preso: entre as pernas e entre o leque, a cabeça e o braço
+seeds = [(205, 330), (130, 205)]
+for sd in seeds:
+    assert claro(px[sd], 200), (sd, px[sd])
+st, area = list(seeds), set(seeds)
 while st:
     x, y = st.pop()
     for n in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
