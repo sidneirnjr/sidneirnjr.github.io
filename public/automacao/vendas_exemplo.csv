@@ -1,0 +1,719 @@
+data,pedido,cliente,produto,quantidade,valor,pagamento
+2026-01-02,P4100,Café do Largo,Cartão de visita,500,199.63,pix
+2026-01-02,P4101,Papelaria Traço,Cartão de visita,250,127.32,cartão
+2026-01-02,P4102,Imobiliária Lar,Cartão de visita,250,"R$ 180,75",boleto
+2026-01-02,P4103,Auto Center Vila,Panfleto,1000,839.39,cartão
+2026-01-03,P4104,Buffet Alegria,Banner,1,182.11,boleto
+2026-01-06,P4105,Papelaria Traço,Adesivo,100,330.81,cartão
+2026-01-06,P4106,Escola Pequeno Saber,Panfleto,2500,404.57,pix
+2026-01-08,P4107,Escola Pequeno Saber,Cardápio,20,291.01,cartão
+2026-01-09,P4108,Clínica Sorriso,Cartão de visita,1000,257.9,boleto
+2026-01-09,P4109,Ótica Visão,Banner,1,331.28,pix
+2026-01-09,P4110,Café do Largo,Adesivo,100,176.4,pix
+2026-01-10,P4111,Floricultura Jardim,Banner,2,135.91,cartão
+2026-01-10,P4112,Escola Pequeno Saber,Convite,50,282.87,pix
+2026-01-10,P4113,Mercadinho Central,Adesivo,250,"R$ 293,98",cartão
+2026-01-12,P4114,Papelaria Traço,Cartão de visita,250,161.91,pix
+2026-01-12,P4115,Doce Mel Confeitaria,Convite,200,295.19,cartão
+2026-01-13,P4116,Pizzaria Forno a Lenha,Panfleto,2500,485.08,cartão
+2026-01-13,P4117,Padaria Bom Grão,Convite,200,698.92,cartão
+2026-01-14,P4118,Barbearia Navalha,Adesivo,100,139.79,cartão
+2026-01-14,P4119,Floricultura Jardim,Cartão de visita,1000,203.94,pix
+2026-01-15,P4120,Escola Pequeno Saber,Cartão de visita,1000,228.33,cartão
+2026-01-16,P4121,Doce Mel Confeitaria,Panfleto,5000,863.73,pix
+2026-01-17,P4122,Auto Center Vila,Panfleto,2500,403.12,pix
+2026-01-17,P4123,Imobiliária Lar,Cartão de visita,250,249.39,boleto
+2026-01-19,P4124,Café do Largo,Cartão de visita,250,213.17,boleto
+2026-01-19,P4125,Mercadinho Central,Panfleto,5000,326.74,cartão
+2026-01-20,P4126,Café do Largo,Cardápio,100,317.66,pix
+2026-01-20,P4127,Escola Pequeno Saber,Panfleto,5000,411.27,cartão
+2026-01-20,P4128,Pet Amigo,Cartão de visita,1000,127.62,cartão
+2026-01-24,P4129,Buffet Alegria,Cartão de visita,250,231.93,cartão
+2026-01-24,P4130,Escola Pequeno Saber,Cartão de visita,250,102.85,boleto
+2026-01-26,P4131,Clínica Sorriso,Banner,2,313.23,pix
+2026-01-26,P4132,Escola Pequeno Saber,Cartão de visita,500,130.86,cartão
+2026-01-26,P4133,Padaria Bom Grão,Convite,200,650.49,pix
+2026-01-26,P4134,Café do Largo,Cartão de visita,250,220.12,pix
+2026-01-28,P4135,Pet Amigo,Cartão de visita,250,152.53,cartão
+2026-01-28,P4136,Imobiliária Lar,Adesivo,500,73.29,cartão
+2026-01-29,P4137,Papelaria Traço,Cardápio,20,370.07,cartão
+2026-01-29,P4138,Pet Amigo,Panfleto,1000,432.81,pix
+2026-01-29,P4139,Papelaria Traço,Panfleto,2500,326.86,pix
+2026-01-30,P4140,PAPELARIA TRAÇO,Cardápio,100,"R$ 273,40",cartão
+2026-01-30,P4141,Barbearia Navalha,Cartão de visita,1000,253.74,boleto
+2026-01-31,P4142,Padaria Bom Grão,Adesivo,500,238.62,cartão
+2026-01-31,P4143,Papelaria Traço,Cartão de visita,250,76.02,pix
+2026-02-02,P4144,Pet Amigo,Adesivo,500,80.76,pix
+2026-02-02,P4145,Padaria Bom Grão,Banner,3,95.41,cartão
+2026-02-02,P4146,Barbearia Navalha,Banner,3,150.84,boleto
+2026-02-03,P4147,Auto Center Vila,Cartão de visita,500,189.1,pix
+2026-02-04,P4148,Padaria Bom Grão,Cardápio,100,294.98,pix
+2026-02-04,P4149,Pet Amigo,Cartão de visita,500,113.04,pix
+2026-02-04,P4150,Clínica Sorriso,Convite,200,293.58,boleto
+04/02/2026,P4151,Papelaria Traço,Panfleto,5000,749.54,pix
+2026-02-05,P4152,Papelaria Traço,Banner,1,102.11,pix
+2026-02-05,P4153,Auto Center Vila,Cartão de visita,500,170.64,pix
+2026-02-06,P4154,Pet Amigo,Adesivo,250,255.64,cartão
+2026-02-06,P4155,Buffet Alegria,Panfleto,1000,779.96,boleto
+2026-02-06,P4156,Barbearia Navalha,Panfleto,1000,122.77,boleto
+2026-02-07,P4157,Clínica Sorriso,Cartão de visita,1000,201.13,pix
+2026-02-07,P4158,Papelaria Traço,Cartão de visita,250,198.2,cartão
+2026-02-07,P4159,Clínica Sorriso,Cartão de visita,500,170.51,pix
+2026-02-07,P4160,Clínica Sorriso,Cartão de visita,250,246.62,pix
+2026-02-09,P4161,Auto Center Vila,Cartão de visita,500,216.02,cartão
+2026-02-10,P4162,Pet Amigo,Cardápio,20,143.63,cartão
+2026-02-10,P4163,Café do Largo,Cartão de visita,500,126.44,boleto
+2026-02-10,P4164,Café do Largo,Convite,200,372.1,pix
+2026-02-11,P4165,Clínica Sorriso,Cartão de visita,500,99.91,pix
+2026-02-12,P4166,Pet Amigo,Adesivo,100,48.05,cartão
+2026-02-13,P4167,Papelaria Traço,Convite,200,380.97,cartão
+2026-02-14,P4168,Mercadinho Central,Cardápio,20,399.95,pix
+2026-02-16,P4169,Pet Amigo,Cardápio,50,125.77,pix
+2026-02-17,P4170,Pizzaria Forno a Lenha,Panfleto,2500,518.91,cartão
+2026-02-17,P4171,Padaria Bom Grão,Cartão de visita,1000,147.21,cartão
+2026-02-17,P4172,Papelaria Traço,Adesivo,100,290.59,pix
+2026-02-18,P4173,Buffet Alegria,Cardápio,100,295.64,pix
+2026-02-19,P4174,Barbearia Navalha,Panfleto,2500,438.55,boleto
+2026-02-19,P4175,Auto Center Vila,Panfleto,2500,447.95,boleto
+2026-02-19,P4176,Doce Mel Confeitaria,Adesivo,250,"R$ 233,50",cartão
+2026-02-20,P4177,Pet Amigo,Panfleto,5000,732.89,boleto
+2026-02-20,P4178,Clínica Sorriso,Panfleto,5000,646.99,cartão
+2026-02-20,P4179,Papelaria Traço,Adesivo,500,290.23,pix
+2026-02-20,P4180,Escola Pequeno Saber,Panfleto,1000,603.02,pix
+2026-02-21,P4181,Pet Amigo,Cartão de visita,250,64.89,cartão
+2026-02-21,P4182,Café do Largo,Banner,3,211.18,cartão
+2026-02-21,P4183,Floricultura Jardim,Cartão de visita,250,158.88,pix
+2026-02-23,P4184,Café do Largo,Cartão de visita,250,214.01,cartão
+2026-02-23,P4185,Café do Largo,Cartão de visita,500,199.18,pix
+2026-02-23,P4186,Buffet Alegria,Banner,1,107.62,cartão
+2026-02-24,P4187,Pizzaria Forno a Lenha,Cardápio,50,403.51,cartão
+2026-02-24,P4188,Buffet Alegria,Adesivo,500,185.09,cartão
+2026-02-25,P4189,Ateliê Flor de Lis,Adesivo,100,128.13,boleto
+2026-02-25,P4190,Café do Largo,Cartão de visita,250,156.92,pix
+2026-02-25,P4191,Floricultura Jardim,Panfleto,2500,"R$ 302,90",pix
+2026-02-25,P4192,Padaria Bom Grão,Convite,100,"R$ 288,60",boleto
+2026-02-27,P4193,Barbearia Navalha,Panfleto,1000,483.42,pix
+2026-02-28,P4194,Café do Largo,Panfleto,1000,857.93,cartão
+2026-02-28,P4195,Padaria Bom Grão,Panfleto,2500,394.37,cartão
+2026-02-28,P4196,Café do Largo,Banner,1,317.96,cartão
+2026-03-02,P4197,PADARIA BOM GRÃO,Panfleto,5000,382.18,cartão
+2026-03-03,P4198,Buffet Alegria,Convite,200,886.12,pix
+2026-03-03,P4199,Pizzaria Forno a Lenha,Convite,50,657.36,boleto
+2026-03-03,P4200,Imobiliária Lar,Panfleto,2500,261.75,cartão
+2026-03-03,P4201,Clínica Sorriso,Panfleto,2500,383.25,pix
+04/03/2026,P4202,Pet Amigo,Adesivo,100,67.85,boleto
+2026-03-04,P4203,Papelaria Traço,Banner,3,"R$ 178,49",pix
+2026-03-04,P4204,Escola Pequeno Saber,Adesivo,100,296.44,pix
+2026-03-04,P4205,Escola Pequeno Saber,Convite,100,351.75,boleto
+2026-03-06,P4206,Pet Amigo,Panfleto,5000,407.74,cartão
+2026-03-06,P4207,Floricultura Jardim,Cardápio,20,346.67,pix
+2026-03-06,P4208,Padaria Bom Grão,Cartão de visita,1000,122.39,cartão
+2026-03-06,P4209,Floricultura Jardim,Panfleto,5000,179.28,boleto
+2026-03-06,P4210,Floricultura Jardim,Cartão de visita,1000,120.32,cartão
+2026-03-06,P4211,Café do Largo,Adesivo,100,232.42,pix
+2026-03-07,P4212,Padaria Bom Grão,Banner,1,270.74,cartão
+2026-03-07,P4213,Auto Center Vila,Adesivo,500,"R$ 366,67",cartão
+2026-03-09,P4214,Café do Largo,Panfleto,2500,873.07,cartão
+2026-03-09,P4215,Mercadinho Central,Adesivo,250,204.39,boleto
+2026-03-09,P4216,Barbearia Navalha,Banner,1,146.1,pix
+2026-03-09,P4217,Pet Amigo,Convite,200,514.59,boleto
+2026-03-09,P4218,PADARIA BOM GRÃO,Panfleto,1000,783.74,cartão
+2026-03-10,P4219,Barbearia Navalha,Adesivo,500,339.31,pix
+2026-03-10,P9001,,Panfleto,1000,,pix
+2026-03-11,P4220,Pet Amigo,Banner,2,144.82,cartão
+2026-03-11,P4221,Pet Amigo,Banner,3,217.59,cartão
+2026-03-11,P4222,Padaria Bom Grão,Panfleto,2500,349.5,boleto
+2026-03-12,P4223,Clínica Sorriso,Banner,2,241.58,cartão
+2026-03-13,P4224,Barbearia Navalha,Banner,2,210.66,pix
+2026-03-13,P4225,Floricultura Jardim,Cartão de visita,1000,123.11,cartão
+2026-03-13,P4226,Ótica Visão,Cardápio,100,153.21,cartão
+2026-03-13,P4227,Pizzaria Forno a Lenha,Cartão de visita,1000,212.04,pix
+2026-03-13,P4228,Imobiliária Lar,Cardápio,50,187.76,pix
+2026-03-13,P4229,Floricultura Jardim,Panfleto,1000,218.73,pix
+2026-03-13,P4230,Floricultura Jardim,Banner,2,109.15,pix
+2026-03-14,P4231,Clínica Sorriso,Banner,1,206.55,pix
+2026-03-14,P4232,Imobiliária Lar,Cartão de visita,250,82.82,cartão
+2026-03-14,P4233,Pizzaria Forno a Lenha,Panfleto,1000,655.43,pix
+2026-03-14,P4234,Papelaria Traço,Adesivo,100,68.96,pix
+2026-03-16,P4235,Pizzaria Forno a Lenha,Panfleto,5000,602.37,cartão
+2026-03-16,P4236,Clínica Sorriso,Panfleto,2500,790.93,pix
+2026-03-16,P4237,Padaria Bom Grão,Banner,1,367.63,pix
+2026-03-16,P4238,Pet Amigo,Banner,1,95.17,pix
+2026-03-17,P4239,Clínica Sorriso,Cartão de visita,500,197.87,pix
+2026-03-17,P4240,Barbearia Navalha,Cartão de visita,500,116.54,pix
+2026-03-17,P4241,Papelaria Traço,Adesivo,500,307.86,cartão
+2026-03-18,P4242,Clínica Sorriso,Cardápio,100,269.71,pix
+2026-03-18,P4243,Imobiliária Lar,Convite,50,231.42,pix
+2026-03-18,P4244,Imobiliária Lar,Banner,2,355.57,pix
+2026-03-19,P4245,Clínica Sorriso,Panfleto,5000,332.35,cartão
+2026-03-19,P4246,Pizzaria Forno a Lenha,Panfleto,5000,813.75,pix
+2026-03-20,P4247,Pet Amigo,Cartão de visita,1000,194.86,cartão
+2026-03-20,P4248,Papelaria Traço,Cardápio,50,311.85,cartão
+2026-03-20,P4249,Café do Largo,Cartão de visita,1000,154.1,cartão
+2026-03-20,P4250,Pet Amigo,Convite,200,601.44,cartão
+2026-03-21,P4251,Clínica Sorriso,Panfleto,1000,370.43,pix
+2026-03-21,P4252,Floricultura Jardim,Panfleto,2500,"R$ 344,81",cartão
+2026-03-21,P4253,Studio Lumi,Cartão de visita,250,110.48,cartão
+2026-03-21,P4254,Imobiliária Lar,Convite,200,180.83,cartão
+2026-03-21,P4255,Pet Amigo,Panfleto,2500,402.19,boleto
+2026-03-23,P4256,Pet Amigo,Cartão de visita,500,86.2,cartão
+2026-03-23,P4257,Ateliê Flor de Lis,Convite,200,200.79,cartão
+2026-03-23,P4258,Floricultura Jardim,Adesivo,100,145.66,cartão
+2026-03-24,P4259,Imobiliária Lar,Cartão de visita,250,82.69,boleto
+2026-03-24,P4260,Mercadinho Central,Adesivo,500,283.65,boleto
+2026-03-25,P4261,Papelaria Traço,Convite,200,355.49,pix
+2026-03-26,P4262,Mercadinho Central,Cardápio,20,380.18,pix
+2026-03-26,P4263,Imobiliária Lar,Adesivo,500,155.56,pix
+2026-03-27,P4264,Barbearia Navalha,Panfleto,5000,"R$ 577,81",cartão
+2026-03-27,P4265,Clínica Sorriso,Convite,100,528.73,cartão
+2026-03-27,P4266,Clínica Sorriso,Adesivo,100,357.17,boleto
+2026-03-27,P4267,Clínica Sorriso,Cartão de visita,500,231.2,pix
+2026-03-27,P4268,Clínica Sorriso,Panfleto,2500,832.48,cartão
+2026-03-28,P4269,Escola Pequeno Saber,Adesivo,100,91.72,pix
+2026-03-28,P4270,Pizzaria Forno a Lenha,Banner,2,339.61,pix
+2026-03-28,P4271,Clínica Sorriso,Banner,2,293.96,boleto
+2026-03-28,P4272,Padaria Bom Grão,Cardápio,50,347.9,pix
+2026-03-28,P4273,Clínica Sorriso,Banner,2,94.9,boleto
+2026-03-30,P4274,Barbearia Navalha,Panfleto,2500,680.6,cartão
+2026-03-30,P4275,Padaria Bom Grão,Cartão de visita,500,186.23,pix
+2026-03-30,P4276,Clínica Sorriso,Adesivo,500,73.47,boleto
+2026-03-30,P4277,Clínica Sorriso,Convite,50,679.68,pix
+30/03/2026,P4278,Padaria Bom Grão,Panfleto,2500,399.6,pix
+2026-03-30,P4279,Clínica Sorriso,Cartão de visita,250,196.36,pix
+2026-04-01,P4280,Ótica Visão,Panfleto,5000,508.18,pix
+2026-04-01,P4281,Escola Pequeno Saber,Cartão de visita,1000,151.91,pix
+2026-04-01,P4282,Clínica Sorriso,Convite,200,387.09,pix
+2026-04-03,P4283,Barbearia Navalha,Cardápio,100,407.47,pix
+2026-04-03,P4284,Barbearia Navalha,Panfleto,2500,899.51,pix
+2026-04-03,P4285,Pizzaria Forno a Lenha,Cartão de visita,1000,174.96,pix
+2026-04-03,P4286,Imobiliária Lar,Cartão de visita,250,139.16,cartão
+2026-04-03,P4287,Café do Largo,Convite,200,880.99,boleto
+2026-04-03,P4288,Buffet Alegria,Panfleto,1000,343.23,cartão
+2026-04-04,P4289,Pet Amigo,Cartão de visita,1000,110.13,boleto
+2026-04-04,P4290,Auto Center Vila,Adesivo,500,73.04,boleto
+2026-04-04,P4291,Café do Largo,Cartão de visita,500,66.67,boleto
+2026-04-04,P4292,Buffet Alegria,Cartão de visita,500,125.34,pix
+2026-04-06,P4293,Imobiliária Lar,Adesivo,500,164.39,pix
+2026-04-07,P4294,Imobiliária Lar,Cartão de visita,500,156.37,boleto
+2026-04-07,P4295,Café do Largo,Convite,50,517.2,pix
+2026-04-07,P4296,Pet Amigo,Adesivo,500,269.95,cartão
+2026-04-07,P4297,Café do Largo,Cardápio,50,210.71,pix
+2026-04-08,P4298,Clínica Sorriso,Cartão de visita,500,209.8,cartão
+2026-04-09,P4299,Clínica Sorriso,Banner,2,279.2,pix
+2026-04-09,P4300,Papelaria Traço,Banner,3,171.68,pix
+2026-04-10,P4301,Clínica Sorriso,Banner,3,287.33,cartão
+2026-04-10,P4302,Padaria Bom Grão,Cartão de visita,500,67.44,pix
+2026-04-10,P4303,Buffet Alegria,Cartão de visita,500,87.13,pix
+2026-04-10,P4304,Café do Largo,Adesivo,250,361.63,cartão
+2026-04-11,P4305,Clínica Sorriso,Cartão de visita,500,79.8,cartão
+2026-04-11,P4306,Papelaria Traço,Panfleto,2500,145.52,pix
+2026-04-11,P4307,Papelaria Traço,Panfleto,1000,787.25,boleto
+2026-04-13,P4308,Escola Pequeno Saber,Convite,100,223.6,pix
+2026-04-13,P4309,Papelaria Traço,Cardápio,20,361.98,boleto
+2026-04-14,P4310,Papelaria Traço,Banner,2,85.68,pix
+2026-04-15,P4311,Pet Amigo,Adesivo,500,322.14,pix
+2026-04-15,P4312,Imobiliária Lar,Banner,1,"R$ 142,23",cartão
+2026-04-15,P4313,Imobiliária Lar,Cartão de visita,250,88.94,cartão
+2026-04-15,P4314,Doce Mel Confeitaria,Cartão de visita,250,192.21,pix
+2026-04-15,P4315,Café do Largo,Cartão de visita,500,107.59,pix
+2026-04-18,P4316,Café do Largo,Banner,2,217.64,cartão
+2026-04-18,P4317,Clínica Sorriso,Banner,3,138.68,pix
+2026-04-18,P4318,Buffet Alegria,Adesivo,250,264.03,cartão
+2026-04-20,P4319,Papelaria Traço,Cartão de visita,500,229.46,boleto
+2026-04-20,P4320,Floricultura Jardim,Cartão de visita,250,148.71,pix
+2026-04-20,P4321,Padaria Bom Grão,Banner,3,155.25,cartão
+2026-04-20,P4322,Barbearia Navalha,Banner,3,378.33,pix
+2026-04-21,P4323,Auto Center Vila,Banner,3,287.55,boleto
+2026-04-21,P4324,Mercadinho Central,Convite,100,803.15,cartão
+2026-04-22,P4325,Imobiliária Lar,Panfleto,5000,431.01,pix
+2026-04-22,P4326,Barbearia Navalha,Panfleto,1000,318.81,boleto
+2026-04-22,P4327,Padaria Bom Grão,Cardápio,20,364.48,cartão
+2026-04-22,P4328,Café do Largo,Cartão de visita,1000,222.35,pix
+2026-04-23,P4329,Barbearia Navalha,Banner,2,107.89,boleto
+2026-04-23,P4330,Clínica Sorriso,Cardápio,20,392.23,pix
+2026-04-23,P4331,Barbearia Navalha,Banner,1,249.15,pix
+2026-04-24,P4332,Auto Center Vila,Cartão de visita,500,229.07,pix
+2026-04-24,P4333,Pizzaria Forno a Lenha,Adesivo,500,314.46,cartão
+2026-04-24,P4334,Escola Pequeno Saber,Banner,3,78.14,boleto
+2026-04-24,P4335,Pet Amigo,Cartão de visita,500,200.54,pix
+25/04/2026,P4336,Doce Mel Confeitaria,Cartão de visita,250,191.47,pix
+2026-04-27,P4337,Studio Lumi,Cardápio,50,265.06,cartão
+2026-04-27,P4338,Doce Mel Confeitaria,Panfleto,2500,363.08,cartão
+2026-04-27,P4339,Imobiliária Lar,Banner,3,118.23,pix
+2026-04-27,P4340,Pet Amigo,Adesivo,250,"R$ 265,06",cartão
+2026-04-27,P4341,Pet Amigo,Panfleto,1000,708.86,pix
+2026-04-28,P4342,Ótica Visão,Panfleto,5000,499.57,pix
+2026-04-28,P4343,Clínica Sorriso,Cartão de visita,250,179.86,pix
+2026-04-29,P4344,Auto Center Vila,Cartão de visita,500,111.1,pix
+2026-05-01,P4345,Clínica Sorriso,Cartão de visita,1000,200.73,cartão
+2026-05-01,P4346,Café do Largo,Convite,200,231.89,pix
+2026-05-01,P4347,Clínica Sorriso,Panfleto,2500,180.73,cartão
+2026-05-01,P4348,Clínica Sorriso,Panfleto,2500,619.31,pix
+2026-05-01,P4349,Papelaria Traço,Panfleto,5000,254.06,cartão
+2026-05-02,P4350,Studio Lumi,Cardápio,20,368.68,cartão
+2026-05-02,P4351,Mercadinho Central,Banner,2,192.69,boleto
+2026-05-02,P4352,Barbearia Navalha,Panfleto,5000,251.14,boleto
+2026-05-02,P4353,Mercadinho Central,Cartão de visita,500,241.18,pix
+2026-05-02,P4354,Imobiliária Lar,Adesivo,100,317.11,pix
+2026-05-04,P4355,Pizzaria Forno a Lenha,Cartão de visita,1000,212.04,pix
+2026-05-05,P4356,Ateliê Flor de Lis,Adesivo,500,296.51,cartão
+2026-05-06,P4357,Escola Pequeno Saber,Convite,100,890.3,boleto
+2026-05-06,P4358,Clínica Sorriso,Panfleto,5000,485.76,pix
+2026-05-06,P4359,Pizzaria Forno a Lenha,Adesivo,100,159.66,pix
+2026-05-06,P4360,Padaria Bom Grão,Panfleto,2500,407.62,pix
+2026-05-07,P4361,Studio Lumi,Cardápio,50,286.05,cartão
+07/05/2026,P4362,Papelaria Traço,Banner,1,299.07,cartão
+2026-05-07,P4363,Pizzaria Forno a Lenha,Convite,200,315.53,cartão
+2026-05-08,P4364,Clínica Sorriso,Cardápio,50,357.62,boleto
+2026-05-08,P4365,Escola Pequeno Saber,Cartão de visita,1000,67.83,cartão
+2026-05-08,P4366,Mercadinho Central,Cardápio,50,291.24,pix
+2026-05-08,P4367,Clínica Sorriso,Cardápio,100,345.57,cartão
+2026-05-11,P4368,Barbearia Navalha,Panfleto,2500,555.21,pix
+2026-05-11,P4369,Imobiliária Lar,Cartão de visita,1000,252.88,pix
+11/05/2026,P4370,Pizzaria Forno a Lenha,Panfleto,2500,230.31,pix
+2026-05-11,P4371,Floricultura Jardim,Cardápio,100,219.35,boleto
+2026-05-11,P4372,Barbearia Navalha,Cardápio,50,214.3,pix
+2026-05-12,P4373,Café do Largo,Adesivo,500,273.04,pix
+2026-05-12,P4374,Clínica Sorriso,Banner,2,182.17,pix
+2026-05-12,P4375,Pet Amigo,Cartão de visita,500,249.53,pix
+2026-05-12,P4376,Auto Center Vila,Cartão de visita,250,75.43,cartão
+2026-05-13,P4377,Imobiliária Lar,Convite,100,207.18,cartão
+2026-05-13,P4378,Clínica Sorriso,Cartão de visita,1000,92.45,cartão
+2026-05-13,P4379,Doce Mel Confeitaria,Adesivo,250,188.81,pix
+2026-05-13,P4380,Pet Amigo,Adesivo,250,191.03,boleto
+2026-05-14,P4381,Pet Amigo,Cartão de visita,500,253.12,pix
+2026-05-14,P4382,Papelaria Traço,Panfleto,2500,887.86,pix
+2026-05-14,P4383,Mercadinho Central,Adesivo,100,182.34,pix
+2026-05-14,P4384,Auto Center Vila,Adesivo,500,125.0,cartão
+2026-05-15,P4385,Auto Center Vila,Banner,1,332.23,pix
+2026-05-15,P4386,Doce Mel Confeitaria,Cartão de visita,1000,149.86,pix
+2026-05-15,P4387,Studio Lumi,Adesivo,250,349.57,pix
+2026-05-15,P4388,Clínica Sorriso,Cardápio,50,220.83,pix
+2026-05-15,P4389,Padaria Bom Grão,Panfleto,2500,295.14,pix
+2026-05-15,P4390,Escola Pequeno Saber,Convite,50,749.79,pix
+2026-05-16,P4391,Floricultura Jardim,Adesivo,500,87.19,cartão
+2026-05-18,P4392,Padaria Bom Grão,Cartão de visita,250,111.18,cartão
+2026-05-18,P4393,Escola Pequeno Saber,Cardápio,50,229.67,pix
+2026-05-18,P4394,Padaria Bom Grão,Panfleto,5000,447.46,cartão
+2026-05-20,P4395,Mercadinho Central,Panfleto,5000,612.92,pix
+2026-05-20,P4396,Barbearia Navalha,Adesivo,250,40.53,pix
+2026-05-20,P4397,PET AMIGO,Banner,3,277.15,pix
+2026-05-20,P4398,Mercadinho Central,Cartão de visita,1000,161.47,cartão
+2026-06-02,P9002,Studio Lumi,Banner,,abc,cartão
+2026-05-20,P4399,Imobiliária Lar,Cartão de visita,500,68.71,pix
+2026-05-21,P4400,Café do Largo,Cartão de visita,1000,128.96,boleto
+2026-05-22,P4401,Café do Largo,Adesivo,100,153.06,pix
+2026-05-22,P4402,Imobiliária Lar,Banner,3,"R$ 124,28",cartão
+22/05/2026,P4403,Ateliê Flor de Lis,Cardápio,20,150.15,pix
+2026-05-22,P4404,Papelaria Traço,Adesivo,100,52.57,pix
+2026-05-22,P4405,Buffet Alegria,Adesivo,250,147.3,cartão
+2026-05-23,P4406,Clínica Sorriso,Adesivo,500,52.45,pix
+2026-05-23,P4407,Imobiliária Lar,Panfleto,5000,157.29,pix
+2026-05-25,P4408,Clínica Sorriso,Adesivo,250,176.01,cartão
+2026-05-25,P4409,Pet Amigo,Panfleto,2500,659.81,cartão
+2026-05-26,P4410,Clínica Sorriso,Cartão de visita,250,146.12,cartão
+2026-05-27,P4411,Barbearia Navalha,Cartão de visita,500,119.13,cartão
+2026-05-28,P4412,Clínica Sorriso,Cartão de visita,1000,149.43,pix
+2026-05-28,P4413,Clínica Sorriso,Banner,1,268.24,pix
+2026-05-28,P4414,Clínica Sorriso,Adesivo,500,214.45,boleto
+2026-05-28,P4415,Padaria Bom Grão,Cartão de visita,1000,229.73,cartão
+2026-06-01,P4416,Clínica Sorriso,Panfleto,5000,562.45,pix
+2026-06-01,P4417,Papelaria Traço,Adesivo,100,166.48,cartão
+2026-06-01,P4418,Clínica Sorriso,Cartão de visita,500,122.88,pix
+2026-06-01,P4419,Padaria Bom Grão,Cardápio,100,151.4,cartão
+2026-06-01,P4420,AUTO CENTER VILA,Convite,200,737.97,cartão
+2026-06-02,P4421,Floricultura Jardim,Banner,1,379.57,pix
+2026-06-05,P4422,Papelaria Traço,Adesivo,250,315.57,boleto
+2026-06-06,P4423,Mercadinho Central,Cartão de visita,250,238.27,boleto
+2026-06-06,P4424,Floricultura Jardim,Adesivo,250,99.19,cartão
+2026-06-08,P4425,Café do Largo,Cardápio,50,168.12,pix
+2026-06-09,P4426,Clínica Sorriso,Banner,1,374.73,cartão
+2026-06-09,P4427,Padaria Bom Grão,Convite,200,466.68,boleto
+2026-06-10,P4428,Clínica Sorriso,Panfleto,1000,568.42,pix
+2026-06-10,P4429,Clínica Sorriso,Banner,2,280.83,pix
+2026-06-11,P4430,Escola Pequeno Saber,Adesivo,100,101.87,cartão
+2026-06-11,P4431,Imobiliária Lar,Banner,3,327.73,pix
+2026-06-11,P4432,Doce Mel Confeitaria,Panfleto,1000,849.1,pix
+2026-06-11,P4433,Mercadinho Central,Cardápio,20,183.74,pix
+2026-06-11,P4434,Papelaria Traço,Cartão de visita,1000,114.89,pix
+2026-06-12,P4435,Escola Pequeno Saber,Cartão de visita,1000,178.36,pix
+2026-06-12,P4436,Escola Pequeno Saber,Cartão de visita,500,240.4,cartão
+2026-06-12,P4437,Imobiliária Lar,Cartão de visita,1000,76.24,cartão
+2026-06-12,P4438,Pet Amigo,Cartão de visita,1000,"R$ 174,43",boleto
+2026-06-15,P4439,Escola Pequeno Saber,Banner,1,163.65,boleto
+2026-06-15,P4440,Clínica Sorriso,Panfleto,1000,657.12,cartão
+2026-06-15,P4441,Clínica Sorriso,Panfleto,1000,385.35,pix
+2026-06-15,P4442,Barbearia Navalha,Convite,100,891.38,cartão
+2026-06-15,P4443,Clínica Sorriso,Cartão de visita,500,172.33,pix
+2026-06-15,P4444,Pet Amigo,Panfleto,1000,313.38,pix
+2026-06-16,P4445,Escola Pequeno Saber,Panfleto,1000,313.65,pix
+2026-06-17,P4446,Pet Amigo,Adesivo,500,94.18,cartão
+2026-06-17,P4447,Barbearia Navalha,Panfleto,2500,138.08,cartão
+2026-06-17,P4448,Pet Amigo,Panfleto,1000,575.01,pix
+2026-06-17,P4449,Pizzaria Forno a Lenha,Panfleto,5000,777.42,cartão
+2026-06-17,P4450,Padaria Bom Grão,Panfleto,1000,203.85,pix
+2026-06-18,P4451,Clínica Sorriso,Adesivo,500,176.2,cartão
+2026-06-18,P4452,Mercadinho Central,Cartão de visita,1000,74.71,cartão
+2026-06-18,P4453,Barbearia Navalha,Adesivo,500,376.29,cartão
+2026-06-18,P4454,Papelaria Traço,Cartão de visita,500,138.78,cartão
+2026-06-19,P4455,Pet Amigo,Adesivo,500,213.1,pix
+2026-06-19,P4456,Auto Center Vila,Cartão de visita,500,126.61,cartão
+2026-06-19,P4457,Pizzaria Forno a Lenha,Panfleto,2500,522.09,cartão
+2026-06-19,P4458,Clínica Sorriso,Panfleto,2500,600.87,cartão
+2026-06-19,P4459,Imobiliária Lar,Panfleto,5000,535.23,cartão
+2026-06-19,P4460,Imobiliária Lar,Panfleto,5000,407.32,pix
+2026-06-19,P4461,Pizzaria Forno a Lenha,Cardápio,100,352.93,boleto
+2026-06-20,P4462,Pet Amigo,Banner,3,273.23,cartão
+2026-06-20,P4463,Padaria Bom Grão,Cartão de visita,1000,156.09,boleto
+2026-06-20,P4464,Café do Largo,Adesivo,500,169.26,pix
+2026-06-23,P4465,Padaria Bom Grão,Cartão de visita,250,122.74,cartão
+2026-06-23,P4466,Clínica Sorriso,Adesivo,250,"R$ 303,49",boleto
+2026-06-23,P4467,Floricultura Jardim,Adesivo,500,216.35,pix
+2026-06-23,P4468,ATELIÊ FLOR DE LIS,Cardápio,20,214.35,cartão
+2026-06-23,P4469,Barbearia Navalha,Convite,200,435.09,boleto
+2026-06-24,P4470,Escola Pequeno Saber,Adesivo,100,105.37,pix
+2026-06-24,P4471,Pet Amigo,Banner,2,371.6,pix
+2026-06-24,P4472,Ótica Visão,Adesivo,250,206.26,pix
+2026-06-25,P4473,Floricultura Jardim,Cardápio,100,184.97,boleto
+2026-06-25,P4474,Buffet Alegria,Banner,2,192.31,pix
+2026-06-25,P4475,Barbearia Navalha,Panfleto,2500,677.03,cartão
+2026-06-26,P4476,Pet Amigo,Adesivo,250,321.5,cartão
+2026-06-26,P4477,Auto Center Vila,Adesivo,500,249.33,pix
+2026-06-26,P4478,Escola Pequeno Saber,Cartão de visita,1000,166.21,pix
+2026-06-26,P4479,Clínica Sorriso,Cartão de visita,250,203.47,boleto
+2026-06-26,P4480,Padaria Bom Grão,Adesivo,100,227.12,cartão
+2026-06-27,P4481,Ateliê Flor de Lis,Convite,100,648.39,pix
+2026-06-27,P4482,Padaria Bom Grão,Panfleto,5000,719.61,cartão
+2026-06-27,P4483,Café do Largo,Cartão de visita,250,230.07,pix
+2026-06-29,P4484,Papelaria Traço,Convite,100,206.16,cartão
+2026-06-29,P4485,Café do Largo,Cartão de visita,500,234.46,pix
+2026-06-29,P4486,Academia Forma,Cartão de visita,500,81.46,pix
+2026-06-30,P4487,Mercadinho Central,Banner,1,345.67,cartão
+2026-06-30,P4488,Pet Amigo,Panfleto,1000,207.86,boleto
+2026-07-01,P4489,Pet Amigo,Cartão de visita,500,207.32,cartão
+2026-07-01,P4490,Pet Amigo,Adesivo,500,247.72,cartão
+2026-07-02,P4491,Studio Lumi,Banner,1,277.47,pix
+2026-07-02,P4492,Papelaria Traço,Panfleto,2500,125.33,pix
+2026-07-02,P4493,Pet Amigo,Panfleto,5000,377.11,boleto
+2026-07-02,P4494,Pet Amigo,Banner,1,181.46,pix
+2026-07-03,P4495,Doce Mel Confeitaria,Panfleto,5000,655.14,pix
+2026-07-03,P4496,Escola Pequeno Saber,Adesivo,250,359.82,cartão
+2026-07-03,P4497,Papelaria Traço,Cartão de visita,500,155.64,boleto
+2026-07-03,P4498,Clínica Sorriso,Cardápio,50,321.64,cartão
+2026-07-04,P4499,Café do Largo,Adesivo,500,271.32,pix
+2026-07-04,P4500,Mercadinho Central,Banner,3,182.15,pix
+2026-07-04,P4501,Mercadinho Central,Cartão de visita,1000,161.1,cartão
+2026-07-04,P4502,Barbearia Navalha,Cartão de visita,250,164.07,boleto
+2026-07-06,P4503,Studio Lumi,Banner,1,228.22,cartão
+2026-07-08,P4504,Academia Forma,Banner,2,278.56,boleto
+2026-07-08,P4505,Pet Amigo,Cartão de visita,250,60.6,cartão
+2026-07-10,P4506,Mercadinho Central,Adesivo,100,60.49,cartão
+2026-07-10,P4507,Clínica Sorriso,Cartão de visita,1000,213.79,boleto
+2026-07-11,P4508,Papelaria Traço,Panfleto,2500,418.33,cartão
+2026-07-11,P4509,Papelaria Traço,Cartão de visita,250,234.91,boleto
+2026-07-11,P4510,Auto Center Vila,Convite,100,894.85,cartão
+2026-07-14,P4511,Café do Largo,Convite,100,884.51,boleto
+2026-07-14,P4512,Clínica Sorriso,Adesivo,100,168.95,pix
+2026-07-14,P4513,Doce Mel Confeitaria,Panfleto,5000,267.01,pix
+2026-07-14,P4514,Escola Pequeno Saber,Cartão de visita,250,182.98,pix
+2026-07-15,P4515,Padaria Bom Grão,Cartão de visita,1000,179.56,pix
+2026-07-16,P4516,Clínica Sorriso,Cartão de visita,250,167.95,pix
+2026-07-17,P4517,Imobiliária Lar,Panfleto,2500,690.58,cartão
+2026-07-17,P4518,Escola Pequeno Saber,Banner,2,169.41,pix
+2026-07-17,P4519,Mercadinho Central,Cardápio,50,"R$ 226,47",pix
+2026-07-18,P4520,Café do Largo,Banner,3,124.29,cartão
+2026-07-18,P4521,Padaria Bom Grão,Banner,3,176.77,boleto
+2026-07-20,P4522,Floricultura Jardim,Banner,2,196.56,cartão
+2026-07-20,P4523,Mercadinho Central,Cartão de visita,250,108.19,pix
+2026-07-21,P4524,Clínica Sorriso,Cartão de visita,500,71.52,cartão
+2026-07-21,P4525,Auto Center Vila,Banner,1,145.29,pix
+2026-07-21,P4526,Papelaria Traço,Banner,1,332.61,cartão
+2026-07-21,P4527,Pet Amigo,Adesivo,500,131.28,cartão
+2026-07-22,P4528,Pet Amigo,Convite,200,728.42,boleto
+2026-07-22,P4529,Ateliê Flor de Lis,Banner,2,339.54,pix
+2026-07-22,P4530,Padaria Bom Grão,Cardápio,100,399.26,pix
+2026-07-23,P4531,Buffet Alegria,Adesivo,500,276.51,pix
+2026-07-23,P4532,Pet Amigo,Panfleto,2500,370.86,cartão
+2026-07-23,P4533,Escola Pequeno Saber,Panfleto,2500,360.57,cartão
+2026-07-24,P4534,Café do Largo,Panfleto,2500,683.48,pix
+2026-07-24,P4535,Clínica Sorriso,Panfleto,1000,558.77,boleto
+2026-07-24,P4536,PET AMIGO,Cartão de visita,1000,246.95,boleto
+2026-07-24,P4537,Doce Mel Confeitaria,Panfleto,2500,377.29,cartão
+2026-07-24,P4538,Mercadinho Central,Convite,200,651.32,pix
+2026-07-25,P4539,Papelaria Traço,Adesivo,250,258.18,cartão
+2026-07-27,P4540,Doce Mel Confeitaria,Adesivo,250,284.91,pix
+2026-07-28,P4541,Escola Pequeno Saber,Banner,1,88.21,pix
+2026-07-28,P4542,Escola Pequeno Saber,Cardápio,50,342.23,pix
+2026-07-28,P4543,Pet Amigo,Convite,50,689.16,pix
+2026-07-28,P4544,Clínica Sorriso,Banner,3,261.53,cartão
+2026-07-29,P4545,Padaria Bom Grão,Banner,2,234.99,pix
+2026-07-29,P4546,Floricultura Jardim,Cartão de visita,500,167.15,pix
+2026-07-29,P4547,Floricultura Jardim,Banner,1,203.48,pix
+2026-07-29,P4548,Mercadinho Central,Cardápio,100,169.52,cartão
+2026-07-30,P4549,Café do Largo,Panfleto,2500,181.64,cartão
+2026-07-31,P4550,Pet Amigo,Cardápio,20,315.73,boleto
+2026-07-31,P4551,Escola Pequeno Saber,Cardápio,50,100.46,cartão
+2026-07-31,P4552,Ateliê Flor de Lis,Panfleto,5000,616.66,pix
+2026-08-03,P4553,Barbearia Navalha,Banner,1,372.97,cartão
+2026-08-03,P4554,Pet Amigo,Cardápio,100,387.42,cartão
+2026-08-03,P4555,Padaria Bom Grão,Panfleto,2500,177.99,cartão
+2026-08-03,P4556,Padaria Bom Grão,Banner,2,357.92,pix
+2026-08-03,P4557,Pizzaria Forno a Lenha,Cardápio,100,338.24,cartão
+2026-08-03,P4558,Barbearia Navalha,Cardápio,100,276.11,cartão
+2026-08-04,P4559,Clínica Sorriso,Banner,3,299.32,boleto
+2026-08-04,P4560,Café do Largo,Cartão de visita,250,129.17,cartão
+2026-08-04,P4561,Padaria Bom Grão,Cartão de visita,1000,181.03,cartão
+2026-08-05,P4562,Padaria Bom Grão,Adesivo,250,132.93,cartão
+2026-08-05,P4563,Mercadinho Central,Cartão de visita,250,135.09,boleto
+2026-08-06,P4564,Café do Largo,Panfleto,1000,350.4,boleto
+2026-08-06,P4565,Pet Amigo,Cartão de visita,1000,136.0,pix
+2026-08-06,P4566,Barbearia Navalha,Adesivo,100,76.23,pix
+07/08/2026,P4567,Auto Center Vila,Adesivo,250,69.68,cartão
+2026-08-07,P4568,Mercadinho Central,Banner,1,102.02,pix
+2026-08-07,P4569,Pizzaria Forno a Lenha,Banner,2,313.18,pix
+2026-08-08,P4570,Studio Lumi,Panfleto,1000,822.89,cartão
+2026-08-10,P4571,Doce Mel Confeitaria,Adesivo,250,131.43,cartão
+2026-08-10,P4572,Doce Mel Confeitaria,Cartão de visita,500,115.19,cartão
+2026-08-10,P4573,Barbearia Navalha,Adesivo,500,361.04,boleto
+2026-08-11,P4574,Clínica Sorriso,Banner,1,112.0,cartão
+11/08/2026,P4575,Escola Pequeno Saber,Panfleto,2500,747.18,cartão
+2026-08-12,P4576,Imobiliária Lar,Adesivo,100,371.24,pix
+2026-08-13,P4577,Pet Amigo,Cardápio,50,193.68,pix
+2026-08-14,P4578,Ateliê Flor de Lis,Adesivo,100,235.8,pix
+2026-08-14,P4579,Imobiliária Lar,Panfleto,1000,426.49,cartão
+2026-08-15,P4580,Pet Amigo,Cardápio,20,343.31,boleto
+2026-08-17,P4581,Clínica Sorriso,Adesivo,500,139.05,pix
+2026-08-17,P4582,Café do Largo,Adesivo,250,179.11,pix
+2026-08-17,P4583,Pet Amigo,Banner,3,274.19,cartão
+2026-08-18,P4584,Papelaria Traço,Cartão de visita,500,155.85,cartão
+2026-08-18,P4585,Buffet Alegria,Banner,3,284.43,pix
+2026-08-18,P4586,Barbearia Navalha,Adesivo,500,344.47,cartão
+2026-08-18,P4587,Studio Lumi,Banner,3,308.38,boleto
+2026-08-19,P4588,Padaria Bom Grão,Banner,3,374.92,boleto
+2026-08-20,P4589,Papelaria Traço,Adesivo,100,186.35,pix
+2026-08-20,P4590,Mercadinho Central,Cartão de visita,1000,163.76,boleto
+2026-08-21,P4591,Clínica Sorriso,Panfleto,5000,722.43,boleto
+2026-08-21,P4592,Barbearia Navalha,Banner,1,"R$ 77,61",pix
+2026-08-21,P4593,Papelaria Traço,Panfleto,5000,210.53,pix
+2026-08-21,P4594,Barbearia Navalha,Panfleto,5000,731.73,cartão
+2026-08-22,P4595,Floricultura Jardim,Cartão de visita,250,150.49,pix
+2026-08-25,P4596,Barbearia Navalha,Cartão de visita,250,81.87,boleto
+2026-08-25,P4597,Doce Mel Confeitaria,Cartão de visita,1000,92.03,cartão
+,P9003,Pet Amigo,Adesivo,250,120,
+2026-08-25,P4598,Pet Amigo,Cardápio,20,223.67,pix
+2026-08-26,P4599,Padaria Bom Grão,Panfleto,1000,599.0,cartão
+2026-08-26,P4600,Clínica Sorriso,Banner,1,288.47,pix
+2026-08-26,P4601,Café do Largo,Adesivo,100,61.27,cartão
+2026-08-27,P4602,Clínica Sorriso,Panfleto,2500,324.64,cartão
+2026-08-28,P4603,Clínica Sorriso,Panfleto,1000,426.18,pix
+2026-08-28,P4604,Clínica Sorriso,Panfleto,5000,254.57,boleto
+2026-08-28,P4605,Buffet Alegria,Adesivo,500,"R$ 240,66",pix
+2026-08-28,P4606,Pet Amigo,Panfleto,2500,211.22,boleto
+2026-08-28,P4607,Clínica Sorriso,Cartão de visita,1000,179.29,cartão
+2026-08-28,P4608,Ateliê Flor de Lis,Panfleto,5000,"R$ 539,16",pix
+2026-08-28,P4609,Ateliê Flor de Lis,Banner,2,113.49,cartão
+2026-08-29,P4610,Papelaria Traço,Convite,50,528.92,cartão
+2026-08-29,P4611,Mercadinho Central,Cardápio,100,253.34,cartão
+2026-08-29,P4612,Imobiliária Lar,Panfleto,1000,501.19,cartão
+2026-09-01,P4613,Barbearia Navalha,Panfleto,1000,539.33,cartão
+2026-09-01,P4614,Café do Largo,Banner,3,223.55,pix
+2026-09-01,P4615,Pet Amigo,Banner,2,238.36,cartão
+2026-09-01,P4616,Padaria Bom Grão,Adesivo,500,284.45,pix
+2026-09-02,P4617,Imobiliária Lar,Cartão de visita,500,210.27,pix
+2026-09-02,P4618,Barbearia Navalha,Panfleto,2500,757.05,pix
+2026-09-02,P4619,Pet Amigo,Adesivo,500,315.64,boleto
+2026-09-02,P4620,Floricultura Jardim,Panfleto,1000,613.56,cartão
+2026-09-02,P4621,Pet Amigo,Cartão de visita,250,101.39,cartão
+2026-09-03,P4622,Mercadinho Central,Panfleto,5000,372.45,pix
+2026-09-03,P4623,Pet Amigo,Panfleto,5000,"R$ 789,25",pix
+2026-09-04,P4624,Clínica Sorriso,Adesivo,250,60.16,boleto
+2026-09-07,P4625,Floricultura Jardim,Cartão de visita,1000,225.7,cartão
+2026-09-07,P4626,Pizzaria Forno a Lenha,Panfleto,2500,329.6,cartão
+2026-09-07,P4627,Escola Pequeno Saber,Panfleto,1000,806.5,cartão
+2026-09-07,P4628,Barbearia Navalha,Banner,2,360.26,cartão
+2026-09-07,P4629,Barbearia Navalha,Cardápio,100,90.82,pix
+2026-09-07,P4630,Clínica Sorriso,Adesivo,250,265.81,pix
+2026-09-08,P4631,Papelaria Traço,Panfleto,2500,763.38,pix
+2026-09-08,P4632,Barbearia Navalha,Panfleto,1000,546.9,cartão
+2026-09-08,P4633,Café do Largo,Convite,50,823.79,pix
+2026-09-08,P4634,Café do Largo,Cartão de visita,250,151.92,pix
+2026-09-09,P4635,Papelaria Traço,Cartão de visita,1000,100.46,pix
+2026-09-09,P4636,Barbearia Navalha,Convite,100,809.58,pix
+2026-09-10,P4637,Clínica Sorriso,Cartão de visita,250,240.76,pix
+2026-09-10,P4638,Barbearia Navalha,Panfleto,1000,665.56,cartão
+2026-09-10,P4639,Floricultura Jardim,Banner,2,70.34,pix
+2026-09-14,P4640,Papelaria Traço,Adesivo,100,183.59,cartão
+2026-09-14,P4641,Clínica Sorriso,Cartão de visita,250,206.15,pix
+2026-09-14,P4642,Imobiliária Lar,Panfleto,1000,226.96,boleto
+2026-09-14,P4643,Doce Mel Confeitaria,Cardápio,20,265.07,cartão
+2026-09-14,P4644,Clínica Sorriso,Banner,3,293.95,boleto
+2026-09-16,P4645,Imobiliária Lar,Adesivo,100,69.47,pix
+2026-09-16,P4646,Pizzaria Forno a Lenha,Adesivo,250,170.57,pix
+2026-09-17,P4647,Escola Pequeno Saber,Cartão de visita,1000,109.63,cartão
+2026-09-17,P4648,Barbearia Navalha,Adesivo,100,360.03,boleto
+2026-09-17,P4649,Pet Amigo,Convite,50,616.99,boleto
+2026-09-17,P4650,Escola Pequeno Saber,Panfleto,1000,731.37,cartão
+2026-09-18,P4651,Escola Pequeno Saber,Cartão de visita,250,74.2,pix
+2026-09-18,P4652,Auto Center Vila,Cardápio,100,374.07,cartão
+2026-09-19,P4653,Café do Largo,Adesivo,100,364.51,pix
+2026-09-19,P4654,Padaria Bom Grão,Banner,1,136.88,cartão
+2026-09-21,P4655,Mercadinho Central,Banner,3,198.78,cartão
+2026-09-21,P4656,Mercadinho Central,Cartão de visita,500,183.21,pix
+2026-09-21,P4657,Mercadinho Central,Panfleto,1000,278.49,cartão
+2026-09-22,P4658,Café do Largo,Banner,3,271.45,pix
+2026-09-23,P4659,Papelaria Traço,Panfleto,1000,306.14,pix
+2026-09-24,P4660,Escola Pequeno Saber,Cartão de visita,1000,71.01,boleto
+2026-09-24,P4661,Doce Mel Confeitaria,Banner,1,"R$ 73,93",boleto
+2026-09-24,P4662,Mercadinho Central,Cartão de visita,1000,129.34,boleto
+2026-09-24,P4663,Clínica Sorriso,Cartão de visita,500,209.96,boleto
+2026-09-24,P4664,Café do Largo,Convite,100,201.14,pix
+2026-09-25,P4665,Papelaria Traço,Cartão de visita,500,185.51,cartão
+2026-09-25,P4666,Padaria Bom Grão,Banner,1,336.4,pix
+2026-09-25,P4667,Café do Largo,Cartão de visita,1000,238.85,boleto
+2026-09-25,P4668,Café do Largo,Cartão de visita,250,60.51,pix
+2026-09-28,P4669,Doce Mel Confeitaria,Cardápio,20,406.91,cartão
+2026-09-28,P4670,Floricultura Jardim,Adesivo,100,262.94,pix
+2026-09-29,P4671,Barbearia Navalha,Convite,200,774.72,pix
+2026-10-01,P4672,Pet Amigo,Cartão de visita,250,163.15,cartão
+2026-10-01,P4673,Clínica Sorriso,Cartão de visita,500,116.46,pix
+2026-10-01,P4674,Clínica Sorriso,Cartão de visita,500,133.78,cartão
+2026-10-01,P4675,Café do Largo,Adesivo,250,122.48,cartão
+2026-10-02,P4676,Café do Largo,Cardápio,100,331.71,pix
+2026-10-02,P4677,Papelaria Traço,Cartão de visita,1000,64.78,pix
+2026-10-02,P4678,Floricultura Jardim,Banner,2,72.97,pix
+2026-10-02,P4679,Clínica Sorriso,Adesivo,250,290.95,pix
+2026-10-02,P4680,Papelaria Traço,Cartão de visita,250,143.96,pix
+2026-10-02,P4681,Studio Lumi,Adesivo,500,353.23,cartão
+2026-10-02,P4682,Clínica Sorriso,Adesivo,100,371.35,cartão
+2026-10-02,P4683,Auto Center Vila,Cartão de visita,250,223.99,cartão
+2026-10-03,P4684,Papelaria Traço,Panfleto,2500,304.68,pix
+2026-10-03,P4685,Clínica Sorriso,Cardápio,50,364.53,pix
+2026-10-03,P4686,Pet Amigo,Panfleto,1000,855.97,cartão
+2026-10-07,P4687,Auto Center Vila,Panfleto,1000,"R$ 399,46",cartão
+2026-10-07,P4688,Pet Amigo,Panfleto,1000,213.53,boleto
+2026-10-08,P4689,Pizzaria Forno a Lenha,Adesivo,250,113.11,pix
+2026-10-10,P4690,Mercadinho Central,Panfleto,2500,648.2,pix
+2026-10-13,P4691,Café do Largo,Panfleto,2500,314.89,pix
+2026-10-13,P4692,Auto Center Vila,Adesivo,100,44.07,pix
+2026-10-15,P4693,Pizzaria Forno a Lenha,Cartão de visita,250,243.49,pix
+2026-10-15,P4694,Pet Amigo,Cardápio,20,303.18,pix
+2026-10-15,P4695,Imobiliária Lar,Convite,50,418.72,cartão
+2026-10-15,P4696,Papelaria Traço,Cartão de visita,1000,146.63,cartão
+2026-10-15,P4697,Clínica Sorriso,Panfleto,2500,452.8,pix
+2026-10-15,P4698,Barbearia Navalha,Convite,50,501.13,pix
+2026-10-16,P4699,Escola Pequeno Saber,Banner,3,224.66,cartão
+2026-10-16,P4700,Barbearia Navalha,Cartão de visita,250,87.45,boleto
+2026-10-16,P4701,Mercadinho Central,Convite,200,634.14,pix
+2026-10-16,P4702,Café do Largo,Cardápio,100,208.51,cartão
+2026-10-17,P4703,Padaria Bom Grão,Cartão de visita,250,179.42,pix
+2026-10-17,P4704,Papelaria Traço,Cartão de visita,1000,165.89,pix
+2026-10-19,P4705,Escola Pequeno Saber,Cartão de visita,1000,113.31,pix
+2026-10-19,P4706,Papelaria Traço,Adesivo,250,235.74,pix
+2026-10-19,P4707,Papelaria Traço,Cardápio,20,147.32,cartão
+2026-10-19,P4708,Café do Largo,Panfleto,5000,399.85,pix
+2026-10-19,P4709,Barbearia Navalha,Adesivo,100,233.0,cartão
+2026-10-19,P4710,Imobiliária Lar,Cardápio,50,357.43,cartão
+2026-10-19,P4711,Ateliê Flor de Lis,Panfleto,1000,190.4,cartão
+2026-10-19,P4712,Mercadinho Central,Cartão de visita,1000,60.14,pix
+2026-10-20,P4713,Doce Mel Confeitaria,Panfleto,2500,745.89,pix
+2026-10-20,P4714,Pizzaria Forno a Lenha,Cartão de visita,250,243.44,cartão
+2026-10-20,P4715,Papelaria Traço,Convite,200,448.99,cartão
+2026-10-20,P4716,Barbearia Navalha,Banner,1,170.01,boleto
+2026-10-20,P4717,Café do Largo,Cardápio,100,407.02,pix
+2026-10-21,P4718,Floricultura Jardim,Cardápio,50,396.52,pix
+2026-10-22,P4719,Clínica Sorriso,Adesivo,250,289.56,pix
+2026-10-22,P4720,Padaria Bom Grão,Cartão de visita,1000,200.4,cartão
+2026-10-22,P4721,Café do Largo,Convite,50,588.59,cartão
+2026-10-22,P4722,Café do Largo,Panfleto,5000,596.88,cartão
+2026-10-24,P4723,Padaria Bom Grão,Panfleto,2500,390.51,pix
+2026-10-24,P4724,Papelaria Traço,Banner,3,324.72,boleto
+2026-10-24,P4725,Barbearia Navalha,Adesivo,100,43.87,pix
+2026-10-26,P4726,Café do Largo,Panfleto,1000,681.92,cartão
+2026-10-26,P4727,Clínica Sorriso,Panfleto,2500,249.74,cartão
+2026-10-26,P4728,Barbearia Navalha,Convite,100,450.25,cartão
+2026-10-26,P4729,Padaria Bom Grão,Cartão de visita,500,229.15,pix
+2026-10-27,P4730,Padaria Bom Grão,Cardápio,50,146.13,pix
+2026-10-27,P4731,Mercadinho Central,Adesivo,100,345.36,pix
+2026-10-28,P4732,Ateliê Flor de Lis,Banner,3,79.61,pix
+2026-10-28,P4733,Clínica Sorriso,Banner,2,86.6,pix
+2026-10-28,P4734,Clínica Sorriso,Cardápio,100,272.86,cartão
+2026-10-29,P4735,Pet Amigo,Panfleto,5000,158.72,cartão
+2026-10-30,P4736,Barbearia Navalha,Cartão de visita,500,145.52,boleto
+2026-10-30,P4737,Ateliê Flor de Lis,Banner,1,100.07,pix
+2026-10-30,P4738,Papelaria Traço,Banner,1,216.81,pix
+2026-10-30,P4739,Clínica Sorriso,Adesivo,250,344.26,pix
+2026-10-30,P4740,Clínica Sorriso,Banner,2,185.02,pix
+2026-10-30,P4741,Padaria Bom Grão,Cartão de visita,500,147.95,pix
+2026-11-02,P4742,Escola Pequeno Saber,Cartão de visita,500,221.64,cartão
+2026-11-02,P4743,Padaria Bom Grão,Cartão de visita,1000,137.42,cartão
+2026-11-02,P4744,Pizzaria Forno a Lenha,Cardápio,50,167.76,pix
+2026-11-02,P4745,Imobiliária Lar,Panfleto,5000,147.09,cartão
+2026-11-03,P4746,Café do Largo,Cartão de visita,250,94.58,pix
+2026-11-03,P4747,Auto Center Vila,Adesivo,500,183.95,cartão
+2026-11-03,P4748,Imobiliária Lar,Cartão de visita,1000,89.58,pix
+2026-11-03,P4749,Café do Largo,Panfleto,1000,749.73,cartão
+2026-11-04,P4750,Imobiliária Lar,Banner,1,231.1,boleto
+2026-11-04,P4751,Mercadinho Central,Banner,2,200.07,pix
+2026-11-04,P4752,Pizzaria Forno a Lenha,Cartão de visita,250,211.68,pix
+2026-11-04,P4753,Auto Center Vila,Banner,3,158.69,pix
+2026-11-05,P4754,Escola Pequeno Saber,Cartão de visita,500,174.4,pix
+2026-11-05,P4755,Clínica Sorriso,Cartão de visita,1000,183.65,boleto
+2026-11-05,P4756,Clínica Sorriso,Panfleto,5000,805.59,pix
+2026-11-05,P4757,Ateliê Flor de Lis,Cartão de visita,500,113.72,pix
+2026-11-05,P4758,Café do Largo,Panfleto,2500,362.54,boleto
+05/11/2026,P4759,Papelaria Traço,Adesivo,250,117.51,boleto
+2026-11-06,P4760,Pet Amigo,Adesivo,500,181.7,pix
+2026-11-06,P4761,Pet Amigo,Cartão de visita,1000,224.79,cartão
+2026-11-06,P4762,Imobiliária Lar,Adesivo,500,319.15,pix
+2026-11-06,P4763,Floricultura Jardim,Cartão de visita,1000,140.68,cartão
+2026-11-09,P4764,Imobiliária Lar,Adesivo,250,124.83,pix
+2026-11-10,P4765,Barbearia Navalha,Adesivo,500,319.99,cartão
+2026-11-10,P4766,Auto Center Vila,Banner,2,79.47,cartão
+2026-11-10,P4767,Doce Mel Confeitaria,Banner,3,339.85,cartão
+2026-11-10,P4768,Doce Mel Confeitaria,Panfleto,5000,817.7,boleto
+2026-11-10,P4769,Padaria Bom Grão,Cartão de visita,1000,69.93,pix
+2026-11-10,P4770,Escola Pequeno Saber,Convite,100,667.94,boleto
+2026-11-11,P4771,Café do Largo,Cartão de visita,250,213.51,cartão
+2026-11-11,P4772,Escola Pequeno Saber,Convite,50,612.82,pix
+2026-11-11,P4773,Café do Largo,Cartão de visita,1000,121.09,boleto
+2026-11-12,P4774,Imobiliária Lar,Convite,50,510.48,cartão
+2026-11-12,P4775,Mercadinho Central,Panfleto,5000,606.41,pix
+2026-11-14,P4776,Imobiliária Lar,Cardápio,100,275.28,cartão
+2026-11-14,P4777,Barbearia Navalha,Panfleto,2500,335.66,pix
+2026-11-14,P4778,Floricultura Jardim,Cartão de visita,500,238.47,pix
+2026-11-14,P4779,Café do Largo,Cartão de visita,1000,239.94,cartão
+2026-11-14,P4780,Escola Pequeno Saber,Adesivo,250,379.14,cartão
+2026-11-16,P4781,Pizzaria Forno a Lenha,Adesivo,100,378.22,pix
+2026-11-16,P4782,Pet Amigo,Adesivo,250,221.78,boleto
+2026-11-16,P4783,Barbearia Navalha,Panfleto,5000,252.59,cartão
+2026-11-17,P4784,Auto Center Vila,Cartão de visita,1000,111.73,pix
+2026-11-18,P4785,Escola Pequeno Saber,Convite,50,"R$ 340,02",boleto
+2026-11-18,P4786,Clínica Sorriso,Convite,100,818.53,pix
+2026-11-18,P4787,Clínica Sorriso,Banner,1,"R$ 106,51",boleto
+2026-11-18,P4788,Papelaria Traço,Banner,1,92.08,cartão
+2026-11-18,P4789,Clínica Sorriso,Banner,1,339.96,pix
+2026-11-18,P4790,Barbearia Navalha,Cardápio,50,415.77,pix
+2026-11-19,P4791,Café do Largo,Adesivo,500,205.78,pix
+2026-11-19,P4792,Padaria Bom Grão,Panfleto,1000,472.6,pix
+2026-11-20,P4793,CAFÉ DO LARGO,Cartão de visita,250,215.95,cartão
+2026-11-20,P4794,Clínica Sorriso,Panfleto,2500,454.64,cartão
+2026-11-20,P4795,Mercadinho Central,Cartão de visita,250,206.13,pix
+2026-11-20,P4796,Mercadinho Central,Adesivo,100,46.09,boleto
+2026-11-20,P4797,Pet Amigo,Adesivo,250,338.17,pix
+2026-11-23,P4798,Padaria Bom Grão,Panfleto,2500,155.66,cartão
+2026-11-23,P4799,Pizzaria Forno a Lenha,Adesivo,500,154.86,pix
+2026-11-23,P4800,Buffet Alegria,Panfleto,1000,400.22,pix
+2026-11-23,P4801,Buffet Alegria,Cardápio,20,223.12,pix
+2026-11-24,P4802,Café do Largo,Cartão de visita,250,177.94,pix
+2026-11-24,P4803,Escola Pequeno Saber,Panfleto,5000,149.14,pix
+2026-11-24,P4804,Escola Pequeno Saber,Adesivo,100,"R$ 241,93",boleto
+2026-11-24,P4805,Imobiliária Lar,Cartão de visita,250,69.65,cartão
+2026-11-24,P4806,Auto Center Vila,Panfleto,5000,317.14,pix
+2026-11-25,P4807,Padaria Bom Grão,Adesivo,100,183.1,boleto
+2026-11-26,P4808,Floricultura Jardim,Banner,1,199.84,cartão
+2026-11-26,P4809,Auto Center Vila,Adesivo,100,78.76,cartão
+2026-11-26,P4810,Pet Amigo,Cartão de visita,1000,112.6,pix
+2026-02-02,P4146,Barbearia Navalha,Banner,3,150.84,boleto
+2026-01-09,P4109,Ótica Visão,Banner,1,331.28,pix
+2026-03-17,P4241,Papelaria Traço,Adesivo,500,307.86,cartão
+2026-11-14,P4779,Café do Largo,Cartão de visita,1000,239.94,cartão

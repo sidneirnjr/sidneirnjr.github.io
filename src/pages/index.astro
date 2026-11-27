@@ -1,0 +1,496 @@
+---
+import Base from '../layouts/Base.astro';
+import { contato, servicos, demos } from '../data/site.js';
+const base = import.meta.env.BASE_URL;
+const ano = new Date().getFullYear();
+const marquee = ['Sites', 'Sistemas sob medida', 'Automações em Python', 'Chatbots', 'IA local', 'Design gráfico', 'Landing pages', 'Painéis'];
+---
+<Base
+  title="Sidnei Rodrigues · Do papel ao código"
+  description="Designer gráfico que virou desenvolvedor. Sites, sistemas sob medida, automações em Python e chatbots para pequenos negócios e gráficas, com desenvolvimento assistido por IA."
+>
+  <header class="top" id="top">
+    <a class="brand" href="#inicio" aria-label="Sidnei Rodrigues, início">
+      <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>Sidnei Rodrigues</span>
+    </a>
+    <nav aria-label="Seções">
+      <a href="#servicos">Serviços</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="top-cta" href="#contato">Orçamento <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="conteudo">
+    <!-- HERO -->
+    <section class="hero" id="inicio" aria-labelledby="hero-t">
+      <canvas class="hero-gl" aria-hidden="true"></canvas>
+      <div class="reg" style="right:4vw;top:96px" aria-hidden="true"></div>
+      <div class="reg" style="left:2vw;bottom:42px" aria-hidden="true"></div>
+      <div class="wrap hero-in">
+        <p class="status mono"><span class="dot" aria-hidden="true"></span> Disponível para novos projetos</p>
+        <h1 id="hero-t" class="hero-t" aria-label="Do papel ao código">
+          <span class="l" aria-hidden="true"><span class="mis" data-t="Do papel">Do papel</span></span>
+          <span class="l" aria-hidden="true"><span class="mis out" data-t="ao código">ao código</span></span>
+        </h1>
+        <div class="hero-sub">
+          <p>
+            Fui designer gráfico por anos, atendendo pequenos negócios e gráficas. Hoje desenvolvo os <strong>sites, sistemas
+            e automações</strong> que esses clientes sempre precisaram, com acabamento de designer e a velocidade do
+            desenvolvimento assistido por IA.
+          </p>
+          <div class="hero-cta">
+            <a class="btn" href="#projetos">Ver projetos <span aria-hidden="true">→</span></a>
+            <a class="btn ghost" href="#contato">Falar comigo</a>
+          </div>
+        </div>
+        <p class="hint mono" aria-hidden="true">Passe o mouse na esfera: as chapas C, M e Y entram em registro</p>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="track">
+        {[0, 1].map(() => marquee.map((m, i) => <span>{m}<i style={`background:${['var(--C)', 'var(--M)', 'var(--Y)', 'var(--K)'][i % 4]}`}></i></span>))}
+      </div>
+    </div>
+
+    <!-- SERVIÇOS -->
+    <section class="wrap sec" id="servicos" aria-labelledby="serv-t">
+      <div class="sec-head">
+        <p class="eyebrow" style="--k:var(--C)">Serviços</p>
+        <h2 id="serv-t" class="section-title" data-reveal>O que eu<br /><span class="out">entrego</span></h2>
+        <p class="sec-lead" data-reveal>
+          Uma pessoa só cuidando do visual e do funcionamento. Você explica o problema do seu negócio; eu desenho,
+          desenvolvo, testo e entrego com instruções de uso.
+        </p>
+      </div>
+      <ol class="serv">
+        {servicos.map((s, i) => (
+          <li class="serv-i" style={`--k:${s.k};--d:${i * 0.06}s`} data-reveal>
+            <span class="serv-n mono">{s.n}</span>
+            <h3>{s.t}</h3>
+            <p>{s.d}</p>
+            <ul class="tags" aria-label="Ferramentas">{s.tags.map((t) => <li>{t}</li>)}</ul>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <!-- PROJETOS -->
+    <section class="sec" id="projetos" aria-labelledby="proj-t">
+      <div class="wrap sec-head">
+        <p class="eyebrow" style="--k:var(--M)">Projetos</p>
+        <h2 id="proj-t" class="section-title" data-reveal>Teste<br /><span class="out">agora mesmo</span></h2>
+        <p class="sec-lead" data-reveal>
+          Demos criadas para este portfólio, com empresas e dados fictícios. Todas funcionam de verdade: clique, calcule,
+          arraste e converse.
+        </p>
+      </div>
+
+      <div class="wrap demos">
+        {demos.map((d, i) => (
+          <article class="demo" style={`--k:${d.k};--d:${(i % 2) * 0.08}s`} data-reveal>
+            <a class="demo-frame" href={`${base}demos/${d.slug}/`} aria-label={`Abrir demo: ${d.t}`} tabindex="-1">
+              <span class="bar" aria-hidden="true"><i></i><i></i><i></i><b class="mono">sidneirnjr.github.io/demos/{d.slug}</b></span>
+              <span class="viewport">
+                <iframe
+                  data-src={`${base}demos/${d.slug}/?embed=1`}
+                  title={`Prévia: ${d.t}`}
+                  loading="lazy"
+                  tabindex="-1"
+                  aria-hidden="true"></iframe>
+              </span>
+            </a>
+            <div class="demo-txt">
+              <p class="mono demo-tipo">{d.tipo}</p>
+              <h3>{d.t}</h3>
+              <p>{d.d}</p>
+              <ul class="tags" aria-label="Tecnologias">{d.tags.map((t) => <li>{t}</li>)}</ul>
+              <a class="btn" href={`${base}demos/${d.slug}/`}>Abrir demo <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="wrap prod-head">
+        <h3 class="sub-title" data-reveal>Produtos próprios</h3>
+        <p data-reveal>Software comercial que desenvolvo e mantenho. Código fechado: aqui você vê o que eles fazem.</p>
+      </div>
+
+      <div class="wrap prods">
+        <article class="prod prontyn" data-reveal>
+          <div class="prod-txt">
+            <p class="mono demo-tipo">SaaS · em desenvolvimento ativo</p>
+            <h3>Prontyn</h3>
+            <p>
+              Atendimento, orçamentos, pedidos e agenda para pequenos negócios. Nasceu da rotina das gráficas que eu
+              atendia como designer e hoje tem módulos para cada tipo de negócio.
+            </p>
+            <ul class="mods" aria-label="Módulos">
+              <li><b>Gráficas</b>orçamento e pedidos</li>
+              <li><b>Oficinas mecânicas</b>ordens de serviço</li>
+              <li><b>Autônomos</b>agenda e clientes</li>
+              <li class="soon"><b>Salões</b>em construção</li>
+              <li class="soon"><b>Restaurantes</b>em construção</li>
+            </ul>
+          </div>
+          <div class="phones" aria-label="Telas do Prontyn, módulo autônomos (dados fictícios)" role="img">
+            <img src={`${base}img/prontyn-clientes.webp`} alt="" width="420" height="908" loading="lazy" decoding="async" />
+            <img src={`${base}img/prontyn-agenda.webp`} alt="" width="420" height="908" loading="lazy" decoding="async" />
+            <img src={`${base}img/prontyn-fila.webp`} alt="" width="420" height="908" loading="lazy" decoding="async" />
+            <img class="mascote" src={`${base}img/prontyn-mascote.webp`} alt="" width="340" height="390" loading="lazy" decoding="async" />
+          </div>
+        </article>
+
+        <article class="prod small elvion" data-reveal style="--d:.05s">
+          <img src={`${base}img/assistente.webp`} alt="Robozinho do assistente de voz com a frase: falei com o PC e ele obedeceu" width="540" height="960" loading="lazy" decoding="async" />
+          <div class="prod-txt">
+            <p class="mono demo-tipo">Desktop · funcional</p>
+            <h3>Assistente de voz para Windows</h3>
+            <p>
+              Você fala, o PC obedece: abre programas, pesquisa e roda rotinas. O reconhecimento de voz roda no próprio
+              computador, sem nuvem, usando menos de 1% de CPU em repouso.
+            </p>
+            <ul class="tags"><li>Python</li><li>Vosk + Whisper</li><li>100% local</li></ul>
+          </div>
+        </article>
+
+        <article class="prod small nodus" data-reveal style="--d:.1s">
+          <img src={`${base}img/nodus-logo.webp`} alt="Logotipo do Nodus em neon azul e roxo" width="900" height="506" loading="lazy" decoding="async" />
+          <div class="prod-txt">
+            <p class="mono demo-tipo">IA local · em desenvolvimento</p>
+            <h3>Nodus</h3>
+            <p>
+              Uma fábrica de software com IA rodando 100% no seu computador. Já gerou uma API completa a partir de um
+              pedido simples, feito por alguém que não programa. O foco: o melhor resultado com o menor modelo.
+            </p>
+            <ul class="tags"><li>TypeScript</li><li>LLMs locais</li><li>Agentes</li></ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="wrap sec sobre" id="sobre" aria-labelledby="sobre-t">
+      <div class="foto" data-reveal>
+        <img class="f-ret" src={`${base}img/sidnei-reticula.webp`} alt="Foto de Sidnei Rodrigues em retícula de impressão CMYK" width="640" height="640" loading="lazy" decoding="async" />
+        <img class="f-real" src={`${base}img/sidnei.webp`} alt="" aria-hidden="true" width="640" height="640" loading="lazy" decoding="async" />
+        <span class="f-cap mono" aria-hidden="true">PROVA DE COR · 175 LPI</span>
+      </div>
+      <div class="sobre-txt">
+        <p class="eyebrow" style="--k:var(--Y)">Sobre</p>
+        <h2 id="sobre-t" class="section-title" data-reveal>Designer<br /><span class="out">que programa</span></h2>
+        <div class="sobre-p" data-reveal>
+          <p>
+            Passei a maior parte da carreira como designer gráfico: identidade visual, impressos e redes sociais para
+            pequenos negócios e gráficas. Vi de perto orçamentos que tomavam a tarde inteira, pedidos anotados no
+            caderno e no WhatsApp, prazos que ninguém conseguia acompanhar.
+          </p>
+          <p>
+            Comecei a programar para resolver esses problemas, e não parei mais. Hoje uso inteligência artificial como
+            ferramenta de trabalho: ela acelera a escrita do código, e eu cuido do que importa, que é entender o
+            negócio, desenhar a solução e testar tudo antes de entregar.
+          </p>
+        </div>
+        <dl class="facts" data-reveal>
+          <div><dt class="mono">Base</dt><dd>Santo André, SP · atendo todo o Brasil</dd></div>
+          <div><dt class="mono">Formação</dt><dd>Tecnologia em Ciência de Dados (cursando)</dd></div>
+          <div><dt class="mono">Método</dt><dd>Conhecimento do negócio + desenvolvimento assistido por IA</dd></div>
+          <div><dt class="mono">Ferramentas</dt><dd>TypeScript, Python, Astro, Next.js, Supabase, Figma</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- PROCESSO -->
+    <section class="sec processo" aria-labelledby="proc-t">
+      <div class="wrap">
+        <p class="eyebrow" style="--k:var(--K)">Como trabalho</p>
+        <h2 id="proc-t" class="section-title" data-reveal>Do briefing<br /><span class="out">à entrega</span></h2>
+        <ol class="steps">
+          <li data-reveal><span class="mono">01</span><h3>Entendo o negócio</h3><p>Antes de qualquer linha de código: como você trabalha hoje, onde perde tempo, o que precisa mudar.</p></li>
+          <li data-reveal style="--d:.06s"><span class="mono">02</span><h3>Escopo por escrito</h3><p>O que será feito, prazo e valor combinados com clareza. Sem surpresa no fim.</p></li>
+          <li data-reveal style="--d:.12s"><span class="mono">03</span><h3>Entregas em etapas</h3><p>Você acompanha o andamento com versões que já dá para clicar e testar.</p></li>
+          <li data-reveal style="--d:.18s"><span class="mono">04</span><h3>Entrega e suporte</h3><p>Testado, publicado e com instruções de uso. E eu continuo por perto depois.</p></li>
+        </ol>
+        <aside class="ia" data-reveal>
+          <p class="mono">Sobre usar IA</p>
+          <p>
+            A IA escreve rápido; quem decide, revisa e testa sou eu. É isso que permite entregar em dias o que antes
+            levava semanas, com preço justo para pequenos negócios. Este site, as quatro demos e a esfera 3D lá em cima
+            foram feitos assim.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="sec contato" id="contato" aria-labelledby="cont-t">
+      <div class="reg" style="right:5vw;top:40px" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="eyebrow" style="--k:var(--Y)">Contato</p>
+        <h2 id="cont-t" class="contato-t" data-reveal>Vamos tirar<br />sua ideia<br /><span class="mis" data-t="do papel?" aria-hidden="true">do papel?</span><span class="sr-only">do papel?</span></h2>
+        <div class="contato-row" data-reveal>
+          <div class="mail">
+            <a class="mail-a" href={`mailto:${contato.email}`}>{contato.email}</a>
+            <button class="copy mono" type="button" data-copy={contato.email}>Copiar e-mail</button>
+            <span class="copied mono" role="status" aria-live="polite"></span>
+          </div>
+          <ul class="links">
+            <li><a href={contato.linkedin} target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></li>
+            {contato.workana && <li><a href={contato.workana} target="_blank" rel="noopener">Workana <span aria-hidden="true">↗</span></a></li>}
+            <li><a href={contato.github} target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <p>© {ano} Sidnei Rodrigues · Santo André, SP</p>
+    <p>Feito com Astro, WebGL e IA · <a href="https://github.com/sidneirnjr/sidneirnjr.github.io" target="_blank" rel="noopener">código deste site</a></p>
+  </footer>
+
+  <script>
+    import { initHero } from '../scripts/hero-gl.js';
+    const cv = document.querySelector<HTMLCanvasElement>('.hero-gl');
+    if (cv) initHero(cv);
+
+    // desalinhamento CMYK do título acompanha o ponteiro
+    const root = document.documentElement;
+    addEventListener('pointermove', (e) => {
+      root.style.setProperty('--dx', ((e.clientX / innerWidth - 0.5) * 14).toFixed(1) + 'px');
+      root.style.setProperty('--dy', ((e.clientY / innerHeight - 0.5) * 8).toFixed(1) + 'px');
+    }, { passive: true });
+
+    // cabeçalho
+    const top = document.getElementById('top');
+    const onScroll = () => top?.classList.toggle('solid', scrollY > 40);
+    addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+    // revelar ao rolar
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
+
+    // prévias das demos só carregam perto da tela
+    const fio = new IntersectionObserver((es) => es.forEach((e) => {
+      if (!e.isIntersecting) return;
+      const f = e.target as HTMLIFrameElement;
+      if (f.dataset.src) { f.src = f.dataset.src; delete f.dataset.src; }
+      fio.unobserve(f);
+    }), { rootMargin: '300px' });
+    document.querySelectorAll('iframe[data-src]').forEach((f) => fio.observe(f));
+
+    // foto: revela a foto real em volta do ponteiro
+    const foto = document.querySelector<HTMLElement>('.foto');
+    foto?.addEventListener('pointermove', (e) => {
+      const r = foto.getBoundingClientRect();
+      foto.style.setProperty('--fx', e.clientX - r.left + 'px');
+      foto.style.setProperty('--fy', e.clientY - r.top + 'px');
+    });
+
+    // copiar e-mail
+    document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((b) => b.addEventListener('click', async () => {
+      const st = b.parentElement?.querySelector('.copied');
+      try { await navigator.clipboard.writeText(b.dataset.copy || ''); if (st) st.textContent = 'E-mail copiado'; }
+      catch { if (st) st.textContent = 'Não deu para copiar. Selecione o e-mail acima.'; }
+      setTimeout(() => { if (st) st.textContent = ''; }, 2600);
+    }));
+  </script>
+</Base>
+
+<style>
+  /* topo */
+  .top {
+    position: fixed; inset: 0 0 auto; z-index: 50; display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding: 16px var(--pad); transition: background .3s, border-color .3s; border-bottom: 1px solid transparent;
+  }
+  .top.solid { background: #0b0b0cd9; backdrop-filter: blur(14px); border-color: var(--line); }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; font-size: 15px; }
+  .mark { position: relative; width: 22px; height: 22px; }
+  .mark i { position: absolute; width: 14px; height: 14px; border-radius: 50%; mix-blend-mode: screen; transition: transform .4s var(--ease); }
+  .mark i:nth-child(1) { background: var(--C); left: 0; top: 0; }
+  .mark i:nth-child(2) { background: var(--M); right: 0; top: 0; }
+  .mark i:nth-child(3) { background: var(--Y); left: 4px; bottom: 0; }
+  .brand:hover .mark i { transform: translate(var(--tx, 0), var(--ty, 0)); }
+  .brand:hover .mark i:nth-child(1) { --tx: 4px; --ty: 2px; }
+  .brand:hover .mark i:nth-child(2) { --tx: -4px; --ty: 2px; }
+  .brand:hover .mark i:nth-child(3) { --ty: -4px; }
+  .top nav { display: flex; gap: 28px; font-family: var(--mono); font-size: 13px; }
+  .top nav a { text-decoration: none; color: var(--mut); transition: color .2s; }
+  .top nav a:hover { color: var(--fg); }
+  .top-cta { font-family: var(--mono); font-size: 13px; text-decoration: none; border: 1px solid var(--line-2); padding: 8px 14px; transition: background .2s, color .2s; }
+  .top-cta:hover { background: var(--fg); color: var(--bg); }
+  @media (max-width: 760px) { .top nav { display: none; } }
+
+  /* hero */
+  .hero { position: relative; min-height: 100svh; display: flex; align-items: center; overflow: hidden; padding: 110px 0 60px; }
+  .hero::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background-image: linear-gradient(#ffffff07 1px, transparent 1px), linear-gradient(90deg, #ffffff07 1px, transparent 1px);
+    background-size: 56px 56px; mask-image: radial-gradient(ellipse at 60% 50%, #000 30%, transparent 80%);
+  }
+  .hero-gl { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .hero-gl:global(.nogl) { background: radial-gradient(circle at 70% 50%, #00b4e633, transparent 30%), radial-gradient(circle at 74% 46%, #ff2e8833, transparent 30%); }
+  .hero-in { position: relative; width: 100%; pointer-events: none; }
+  .hero-in a, .hero-in button { pointer-events: auto; }
+  .status { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; color: var(--mut); border: 1px solid var(--line); padding: 6px 12px; background: #0b0b0c99; backdrop-filter: blur(6px); }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 0 #22c55e88; animation: pulse 2.2s infinite; }
+  @keyframes pulse { 70% { box-shadow: 0 0 0 10px #22c55e00; } 100% { box-shadow: 0 0 0 0 #22c55e00; } }
+  .hero-t {
+    font-family: var(--display); font-weight: 800; text-transform: uppercase; letter-spacing: -.055em; line-height: .86;
+    font-size: clamp(52px, 11vw, 178px); margin: 26px 0 34px;
+  }
+  .l { display: block; overflow: hidden; padding-bottom: .04em; }
+  .l > span { display: inline-block; animation: rise 1.1s var(--ease) both; }
+  .l:nth-child(2) > span { animation-delay: .12s; }
+  @keyframes rise { from { transform: translateY(105%); } }
+  .mis { position: relative; display: inline-block; }
+  .mis::before, .mis::after { content: attr(data-t); position: absolute; inset: 0; mix-blend-mode: screen; pointer-events: none; transition: transform .6s var(--ease); }
+  .mis::before { color: var(--C); transform: translate(var(--dx, 4px), 0); }
+  .mis::after { color: var(--M); transform: translate(calc(var(--dx, 4px) * -1), var(--dy, 3px)); }
+  .mis.out { -webkit-text-stroke: 1.5px var(--fg); color: transparent; }
+  .mis.out::before, .mis.out::after { -webkit-text-stroke: 1.5px currentColor; color: transparent; }
+  .mis.out::before { -webkit-text-stroke-color: var(--C); }
+  .mis.out::after { -webkit-text-stroke-color: var(--M); }
+  .hero-sub { display: grid; grid-template-columns: minmax(0, 52ch) auto; gap: 32px 48px; align-items: end; }
+  .hero-sub p { color: #c9c5bd; font-size: clamp(16px, 1.35vw, 19px); }
+  .hero-sub strong { color: var(--fg); font-weight: 600; }
+  .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hint { margin-top: 48px; font-size: 12px; color: var(--mut); }
+  @media (max-width: 900px) { .hero-sub { grid-template-columns: 1fr; } .hint { display: none; } }
+  @media (pointer: coarse) { .hint { display: none; } }
+
+  /* faixa */
+  .marquee { border-block: 1px solid var(--line); overflow: hidden; padding: 18px 0; background: var(--bg-2); }
+  .track { display: flex; width: max-content; animation: slide 38s linear infinite; }
+  .track span { display: inline-flex; align-items: center; gap: 28px; padding-right: 28px; font-family: var(--display); font-size: clamp(18px, 2.2vw, 28px); text-transform: uppercase; letter-spacing: -.02em; white-space: nowrap; }
+  .track i { width: 12px; height: 12px; border-radius: 50%; display: block; }
+  @keyframes slide { to { transform: translateX(-50%); } }
+
+  /* seções */
+  .sec { padding-block: clamp(80px, 13vw, 170px); position: relative; }
+  .sec-head { display: grid; gap: 22px; margin-bottom: clamp(40px, 6vw, 80px); }
+  .sec-lead { color: var(--mut); max-width: 56ch; font-size: clamp(16px, 1.3vw, 19px); }
+
+  /* serviços */
+  .serv { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .serv-i {
+    display: grid; grid-template-columns: 80px minmax(0, 1.1fr) minmax(0, 1.4fr) minmax(0, .9fr); gap: 24px; align-items: start;
+    padding: 32px 0; border-bottom: 1px solid var(--line); position: relative;
+  }
+  .serv-i::before { content: ''; position: absolute; left: 0; top: -1px; height: 2px; width: 0; background: var(--k); transition: width .7s var(--ease); }
+  .serv-i:hover::before { width: 100%; }
+  .serv-n { color: var(--k); font-size: 14px; padding-top: 6px; }
+  .serv-i h3 { font-family: var(--display); font-weight: 600; font-size: clamp(20px, 2.2vw, 30px); letter-spacing: -.03em; }
+  .serv-i p { color: var(--mut); }
+  .tags { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .tags li { font-family: var(--mono); font-size: 12px; border: 1px solid var(--line-2); padding: 3px 9px; color: #cfcbc3; }
+  .serv .tags { justify-content: flex-end; }
+  @media (max-width: 900px) {
+    .serv-i { grid-template-columns: 48px 1fr; }
+    .serv-i p, .serv-i .tags { grid-column: 2; }
+    .serv .tags { justify-content: flex-start; }
+  }
+
+  /* demos */
+  .demos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); }
+  .demo { border: 1px solid var(--line); background: var(--bg-2); display: flex; flex-direction: column; transition: border-color .3s; }
+  .demo:hover { border-color: var(--k); }
+  .demo-frame { display: block; text-decoration: none; border-bottom: 1px solid var(--line); overflow: hidden; }
+  .bar { display: flex; align-items: center; gap: 6px; padding: 10px 12px; background: var(--bg-3); border-bottom: 1px solid var(--line); }
+  .bar i { width: 9px; height: 9px; border-radius: 50%; background: #ffffff22; }
+  .bar b { margin-left: 10px; font-weight: 400; font-size: 11px; color: var(--mut); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .viewport { display: block; position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #f2efe8; }
+  .viewport iframe {
+    position: absolute; left: 0; top: 0; width: 250%; height: 250%; border: 0; transform: scale(.4); transform-origin: 0 0;
+    pointer-events: none; transition: transform 1.2s var(--ease);
+  }
+  .demo:hover .viewport iframe { transform: scale(.4) translateY(-6%); }
+  .demo-txt { padding: clamp(20px, 2.4vw, 32px); display: grid; gap: 14px; align-content: start; flex: 1; }
+  .demo-txt .btn { justify-self: start; margin-top: 8px; --b: var(--k); }
+  .demo-tipo { font-size: 12px; color: var(--k); text-transform: uppercase; letter-spacing: .12em; }
+  .demo h3, .prod h3 { font-family: var(--display); font-weight: 600; font-size: clamp(20px, 1.9vw, 27px); letter-spacing: -.03em; line-height: 1.12; }
+  .demo-txt > p:not(.demo-tipo), .prod-txt > p:not(.demo-tipo) { color: var(--mut); }
+  @media (max-width: 860px) { .demos { grid-template-columns: 1fr; } }
+
+  /* produtos */
+  .prod-head { margin-top: clamp(80px, 10vw, 130px); margin-bottom: 32px; display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 20px; }
+  .sub-title { font-family: var(--display); font-weight: 600; font-size: clamp(26px, 3vw, 40px); letter-spacing: -.03em; }
+  .prod-head p { color: var(--mut); max-width: 52ch; }
+  .prods { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); }
+  .prod { border: 1px solid var(--line); background: var(--bg-2); overflow: hidden; }
+  .prod-txt { padding: clamp(20px, 2.4vw, 32px); display: grid; gap: 14px; align-content: start; }
+  .prontyn { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); --k: #a5b4fc; background: radial-gradient(circle at 80% 30%, #4f46e522, transparent 60%), var(--bg-2); }
+  .prontyn h3 { font-size: clamp(32px, 4vw, 56px); }
+  .mods { list-style: none; padding: 0; margin: 6px 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+  .mods li { border: 1px solid var(--line-2); padding: 10px 12px; font-size: 13px; color: var(--mut); display: grid; }
+  .mods b { color: var(--fg); font-weight: 600; font-size: 14px; }
+  .mods .soon { border-style: dashed; }
+  .phones { position: relative; min-height: 440px; }
+  .phones img:not(.mascote) {
+    position: absolute; width: 34%; top: 50%; left: 50%; border-radius: 22px; border: 6px solid #232338;
+    box-shadow: 0 30px 60px #0008; transition: transform .8s var(--ease);
+  }
+  .phones img:nth-child(1) { transform: translate(-125%, -46%) rotate(-8deg); }
+  .phones img:nth-child(2) { transform: translate(-50%, -54%); z-index: 2; }
+  .phones img:nth-child(3) { transform: translate(25%, -46%) rotate(8deg); }
+  .prontyn:hover .phones img:nth-child(1) { transform: translate(-140%, -48%) rotate(-11deg); }
+  .prontyn:hover .phones img:nth-child(3) { transform: translate(40%, -48%) rotate(11deg); }
+  .mascote { position: absolute; width: 22%; right: 4%; bottom: 2%; z-index: 3; filter: drop-shadow(0 10px 20px #0008); }
+  .small img { width: 100%; height: 280px; object-fit: cover; border-bottom: 1px solid var(--line); }
+  .elvion { --k: #67e8f9; }
+  .elvion img { object-position: 50% 42%; background: #061018; }
+  .nodus { --k: #a78bfa; }
+  @media (max-width: 960px) {
+    .prontyn { grid-template-columns: 1fr; }
+    .phones { min-height: 380px; }
+  }
+  @media (max-width: 760px) { .prods { grid-template-columns: 1fr; } .phones img:not(.mascote) { width: 40%; } }
+
+  /* sobre */
+  .sobre { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+  .foto { position: relative; aspect-ratio: 1; overflow: hidden; border: 1px solid var(--line); --fx: -200px; --fy: -200px; cursor: crosshair; }
+  .foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .f-real { clip-path: circle(0 at var(--fx) var(--fy)); transition: clip-path .5s var(--ease); }
+  .foto:hover .f-real { clip-path: circle(110px at var(--fx) var(--fy)); }
+  .f-cap { position: absolute; left: 12px; bottom: 10px; font-size: 11px; color: #111; background: #f2efe8; padding: 2px 8px; }
+  .sobre-txt { display: grid; gap: 26px; }
+  .sobre-p { display: grid; gap: 16px; color: #c9c5bd; font-size: clamp(16px, 1.25vw, 18px); max-width: 60ch; }
+  .facts { margin: 8px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+  .facts div { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--line); }
+  .facts dt { font-size: 12px; color: var(--mut); text-transform: uppercase; letter-spacing: .12em; }
+  .facts dd { margin: 4px 0 0; }
+  @media (max-width: 860px) { .sobre { grid-template-columns: 1fr; } .foto { max-width: 480px; } .facts { grid-template-columns: 1fr; } }
+
+  /* processo */
+  .processo { background: var(--bg-2); border-block: 1px solid var(--line); }
+  .processo .section-title { margin: 22px 0 56px; }
+  .steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px; }
+  .steps li { background: var(--bg); padding: 28px 24px 32px; display: grid; gap: 12px; align-content: start; }
+  .steps span { color: var(--Y); font-size: 13px; }
+  .steps h3 { font-family: var(--display); font-weight: 600; font-size: 20px; letter-spacing: -.02em; }
+  .steps p { color: var(--mut); font-size: 15px; }
+  .ia { margin-top: 40px; border: 1px solid var(--line-2); padding: 24px 28px; display: grid; grid-template-columns: 180px 1fr; gap: 20px; background: linear-gradient(90deg, #00b4e60d, #ff2e880d, #ffd4000d); }
+  .ia p:first-child { color: var(--Y); font-size: 13px; text-transform: uppercase; letter-spacing: .12em; }
+  .ia p:last-child { color: #c9c5bd; }
+  @media (max-width: 900px) { .steps { grid-template-columns: 1fr 1fr; } .ia { grid-template-columns: 1fr; } }
+  @media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
+
+  /* contato */
+  .contato { overflow: hidden; }
+  .contato-t { font-family: var(--display); font-weight: 800; text-transform: uppercase; letter-spacing: -.05em; line-height: .9; font-size: clamp(40px, 8.6vw, 136px); margin: 26px 0 56px; }
+  .contato-row { display: flex; justify-content: space-between; align-items: end; gap: 32px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 32px; }
+  .mail { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .mail-a { font-size: clamp(20px, 2.6vw, 36px); font-weight: 500; text-decoration: none; background: linear-gradient(var(--Y), var(--Y)) 0 100% / 0 3px no-repeat; transition: background-size .4s var(--ease); word-break: break-all; }
+  .mail-a:hover { background-size: 100% 3px; }
+  .copy { background: none; border: 1px solid var(--line-2); padding: 8px 12px; cursor: pointer; font-size: 13px; }
+  .copy:hover { background: var(--fg); color: var(--bg); }
+  .copied { font-size: 13px; color: #22c55e; }
+  .links { list-style: none; padding: 0; margin: 0; display: flex; gap: 10px; flex-wrap: wrap; }
+  .links a { display: inline-block; font-family: var(--mono); text-decoration: none; border: 1px solid var(--line-2); padding: 12px 18px; transition: background .2s, color .2s; }
+  .links a:hover { background: var(--fg); color: var(--bg); }
+
+  .foot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-block: 28px 36px; border-top: 1px solid var(--line); color: var(--mut); font-size: 14px; }
+</style>

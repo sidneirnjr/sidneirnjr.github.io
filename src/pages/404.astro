@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Página não encontrada · Sidnei Rodrigues" description="Esta página não existe." path="/404">
+  <main id="conteudo" class="nf">
+    <p class="eyebrow" style="--k:var(--M)">Erro 404</p>
+    <h1 class="section-title">Fora de<br /><span class="out">registro</span></h1>
+    <p>Essa página não existe, ou saiu da prova antes da hora.</p>
+    <a class="btn" href={base}>Voltar ao início</a>
+  </main>
+</Base>
+<style>
+  .nf { min-height: 100svh; display: grid; place-content: center; gap: 24px; padding: var(--pad); }
+  .nf p:not(.eyebrow) { color: var(--mut); }
+  .nf .btn { justify-self: start; }
+</style>

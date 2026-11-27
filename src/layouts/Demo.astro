@@ -1,0 +1,62 @@
+---
+// Layout das demos: cada demo tem identidade própria (é "o site do cliente"),
+// com uma faixa discreta no topo avisando que é uma demonstração.
+interface Props {
+  title: string;
+  description: string;
+  fonts?: string;
+  theme?: string;
+}
+const { title, description, fonts, theme = '#ffffff' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const url = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={url} />
+    <meta name="theme-color" content={theme} />
+    <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL('/img/og.png', Astro.site)} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    {fonts && <link rel="stylesheet" href={`https://fonts.googleapis.com/css2?${fonts}&display=swap`} />}
+    <script is:inline>
+      if (new URLSearchParams(location.search).has('embed')) document.documentElement.classList.add('embed');
+    </script>
+    <slot name="head" />
+  </head>
+  <body>
+    <div class="demo-flag" role="note">
+      <a href={`${base}#projetos`}>← Portfólio de Sidnei Rodrigues</a>
+      <span>Demonstração com empresa e dados fictícios</span>
+    </div>
+    <slot />
+    <style is:global>
+      *, *::before, *::after { box-sizing: border-box; }
+      body { margin: 0; }
+      img { max-width: 100%; display: block; }
+      button { font: inherit; }
+      .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+      .demo-flag {
+        display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center;
+        background: #0b0b0c; color: #f2efe8; padding: 8px 16px;
+        font: 500 12.5px/1.4 'IBM Plex Mono', ui-monospace, Consolas, monospace;
+      }
+      .demo-flag a { color: #ffd400; text-decoration: none; }
+      .demo-flag a:hover { text-decoration: underline; }
+      .demo-flag span { color: #9b978f; }
+      .embed .demo-flag { display: none; }
+      :focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,316 @@
+---
+import Demo from '../../layouts/Demo.astro';
+import fs from 'node:fs';
+const base = import.meta.env.BASE_URL;
+const codigo = fs.readFileSync(new URL('../../../public/automacao/relatorio_vendas.py', import.meta.url), 'utf8');
+const csv = fs.readFileSync(new URL('../../../public/automacao/vendas_exemplo.csv', import.meta.url), 'utf8');
+const linhasCsv = csv.trim().split('\n');
+function parseLinha(l: string, sep = ',') {
+  const out: string[] = []; let cur = '', q = false;
+  for (let i = 0; i < l.length; i++) {
+    const ch = l[i];
+    if (q) { if (ch === '"' && l[i + 1] === '"') { cur += '"'; i++; } else if (ch === '"') q = false; else cur += ch; }
+    else if (ch === '"') q = true; else if (ch === sep) { out.push(cur); cur = ''; } else cur += ch;
+  }
+  out.push(cur); return out;
+}
+const preview = linhasCsv.slice(0, 9).map((l) => parseLinha(l.trim()));
+
+// destaque de sintaxe simples, feito no build (sem biblioteca no navegador)
+const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const KW = /\b(def|return|import|from|for|in|if|else|elif|try|except|raise|with|as|not|and|or|None|True|False|lambda|continue|pass|is)\b/g;
+function realce(src: string) {
+  const tokens: string[] = [];
+  const guarda = (html: string) => { tokens.push(html); return `@@T${tokens.length - 1}T@@`; };
+  let h = esc(src);
+  h = h.replace(/"""[\s\S]*?"""/g, (m) => guarda(`<span class="s">${m}</span>`));
+  h = h.replace(/f?"[^"\n]*"|f?'[^'\n]*'/g, (m) => guarda(`<span class="s">${m}</span>`));
+  h = h.replace(/#[^\n]*/g, (m) => guarda(`<span class="c">${m}</span>`));
+  h = h.replace(KW, '<span class="k">$1</span>').replace(/\b(\d+(?:\.\d+)?)\b/g, '<span class="n">$1</span>');
+  return h.replace(/@@T(\d+)T@@/g, (_, i) => tokens[+i]);
+}
+const codigoHtml = realce(codigo);
+---
+<Demo
+  title="Automação Python: planilha → relatório (demo)"
+  description="Script Python real que lê uma planilha de vendas, limpa os dados e gera um relatório, rodando no navegador com Pyodide. Portfólio de Sidnei Rodrigues."
+  fonts="family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500"
+  theme="#0d1117"
+>
+  <main class="au" id="conteudo">
+    <header class="au-head">
+      <p class="kick">Demo · Automação em Python</p>
+      <h1>A planilha de vendas vira relatório em um clique.</h1>
+      <p class="lead">
+        Um script Python de verdade, rodando dentro do seu navegador. Ele lê a planilha, corrige valores em formato
+        brasileiro, descarta linhas quebradas e pedidos duplicados, calcula tudo e monta o relatório. O mesmo arquivo
+        roda no computador do cliente com um duplo clique.
+      </p>
+      <ol class="flow" aria-label="Etapas">
+        <li><b>1</b> Planilha</li><li aria-hidden="true">→</li><li><b>2</b> Script Python</li><li aria-hidden="true">→</li><li><b>3</b> Relatório</li>
+      </ol>
+    </header>
+
+    <section class="grid">
+      <article class="panel">
+        <header><h2><span class="dot y"></span>vendas_exemplo.csv</h2><span class="mono mut" data-rows>{linhasCsv.length - 1} linhas</span></header>
+        <div class="tbl-w">
+          <table class="tbl" data-tbl>
+            <thead><tr>{preview[0].map((h) => <th>{h}</th>)}</tr></thead>
+            <tbody>{preview.slice(1).map((r) => <tr>{r.map((c) => <td>{c}</td>)}</tr>)}</tbody>
+          </table>
+        </div>
+        <div class="panel-a">
+          <label class="btn ghost file">
+            <input type="file" accept=".csv,text/csv" data-file />
+            Usar minha planilha (.csv)
+          </label>
+          <a class="btn ghost" href={`${base}automacao/vendas_exemplo.csv`} download>Baixar exemplo</a>
+        </div>
+        <p class="hint mut">Colunas: data, pedido, cliente, produto, quantidade, valor, pagamento. O arquivo não sai do seu computador.</p>
+      </article>
+
+      <article class="panel code">
+        <header><h2><span class="dot b"></span>relatorio_vendas.py</h2><a class="mono mut" href={`${base}automacao/relatorio_vendas.py`} download>baixar .py</a></header>
+        <pre class="src" tabindex="0" aria-label="Código-fonte do script"><code set:html={codigoHtml} /></pre>
+      </article>
+    </section>
+
+    <section class="run">
+      <button class="go" type="button" data-run>
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M7 4v16l13-8z"/></svg>
+        <span data-run-l>Executar em Python</span>
+      </button>
+      <p class="mut small">Na primeira execução o navegador baixa o Python (Pyodide, cerca de 10 MB). Depois fica instantâneo.</p>
+    </section>
+
+    <section class="term" aria-label="Saída do terminal">
+      <header><span></span><span></span><span></span><b class="mono">terminal</b></header>
+      <pre class="out" data-out role="log" aria-live="polite">$ python relatorio_vendas.py vendas_exemplo.csv
+<span class="mut"># clique em "Executar em Python" para rodar o script</span></pre>
+    </section>
+
+    <section class="rep" data-rep hidden aria-labelledby="rep-t">
+      <header class="rep-head">
+        <h2 id="rep-t">Relatório gerado</h2>
+        <button class="btn" type="button" data-dl>Baixar relatório (.html)</button>
+      </header>
+      <div class="kp" data-kp></div>
+      <div class="rep-grid">
+        <article class="panel">
+          <header><h3>Faturamento por mês</h3></header>
+          <div class="mbars" data-mbars role="img"></div>
+        </article>
+        <article class="panel">
+          <header><h3>Produtos que mais faturam</h3></header>
+          <ul class="hbars" data-prod></ul>
+        </article>
+        <article class="panel">
+          <header><h3>Clientes que mais compram</h3></header>
+          <ol class="rank" data-cli></ol>
+        </article>
+        <article class="panel">
+          <header><h3>Alertas automáticos</h3></header>
+          <ul class="alerts" data-alerts></ul>
+          <div class="pay" data-pay></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const PYODIDE = 'https://cdn.jsdelivr.net/pyodide/v0.27.7/full/';
+    const base = import.meta.env.BASE_URL;
+    const $ = <T extends Element = HTMLElement>(s: string) => document.querySelector(s) as T;
+    const out = $('[data-out]');
+    const brl = (v: number) => v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    const brl0 = (v: number) => v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+    const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]!));
+
+    function parseLinha(l: string, sep = ',') {
+  const out: string[] = []; let cur = '', q = false;
+  for (let i = 0; i < l.length; i++) {
+    const ch = l[i];
+    if (q) { if (ch === '"' && l[i + 1] === '"') { cur += '"'; i++; } else if (ch === '"') q = false; else cur += ch; }
+    else if (ch === '"') q = true; else if (ch === sep) { out.push(cur); cur = ''; } else cur += ch;
+  }
+  out.push(cur); return out;
+}
+    let csvTexto: string | null = null;
+    let csvNome = 'vendas_exemplo.csv';
+    let py: any = null;
+    let ultimoHtml = '';
+
+    function log(t: string, cls = '') { out.insertAdjacentHTML('beforeend', `\n<span class="${cls}">${esc(t)}</span>`); out.scrollTop = out.scrollHeight; }
+
+    // planilha do usuário
+    $<HTMLInputElement>('[data-file]').addEventListener('change', async (e) => {
+      const f = (e.target as HTMLInputElement).files?.[0]; if (!f) return;
+      if (f.size > 5e6) { log('Arquivo muito grande para a demo (máx. 5 MB).', 'err'); return; }
+      csvTexto = await f.text(); csvNome = f.name;
+      const linhas = csvTexto.trim().split(/\r?\n/);
+      const sep = (linhas[0].match(/;/g) || []).length > (linhas[0].match(/,/g) || []).length ? ';' : ',';
+      const rows = linhas.slice(0, 9).map((l) => parseLinha(l, sep));
+      $('[data-tbl]').innerHTML = `<thead><tr>${rows[0].map((h) => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.slice(1).map((r) => `<tr>${r.map((c) => `<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody>`;
+      $('[data-rows]').textContent = `${linhas.length - 1} linhas`;
+      document.querySelector('.panel h2')!.lastChild!.textContent = f.name;
+      out.innerHTML = `$ python relatorio_vendas.py ${esc(f.name)}`;
+    });
+
+    function carregarScript(src: string) {
+      return new Promise<void>((ok, erro) => { const s = document.createElement('script'); s.src = src; s.onload = () => ok(); s.onerror = () => erro(new Error('falha ao baixar')); document.head.appendChild(s); });
+    }
+
+    async function executar() {
+      const btn = $<HTMLButtonElement>('[data-run]');
+      btn.disabled = true; $('[data-run-l]').textContent = 'Executando…';
+      out.innerHTML = `$ python relatorio_vendas.py ${esc(csvNome)}`;
+      try {
+        const t0 = performance.now();
+        if (!py) {
+          log('Baixando o Python para o navegador (Pyodide)…', 'mut');
+          await carregarScript(PYODIDE + 'pyodide.js');
+          py = await (window as any).loadPyodide({ indexURL: PYODIDE });
+          const [codigo] = await Promise.all([fetch(`${base}automacao/relatorio_vendas.py`).then((r) => r.text())]);
+          py.FS.writeFile('relatorio_vendas.py', codigo);
+          py.runPython('import sys; sys.path.insert(0, ".")');
+          log(`Python ${py.runPython('import sys; sys.version.split()[0]')} pronto em ${((performance.now() - t0) / 1000).toFixed(1)} s`, 'ok');
+        }
+        if (!csvTexto) csvTexto = await fetch(`${base}automacao/vendas_exemplo.csv`).then((r) => r.text());
+        py.setStdout({ batched: (t: string) => log(t) });
+        const t1 = performance.now();
+        py.globals.set('csv_texto', csvTexto);
+        const json = py.runPython('import importlib, relatorio_vendas as rv\nimportlib.reload(rv)\nrv.executar_json(csv_texto)');
+        log(`\nConcluído em ${Math.round(performance.now() - t1)} ms`, 'ok');
+        mostrar(JSON.parse(json));
+      } catch (err: any) {
+        const msg = String(err?.message || err).split('\n').filter(Boolean);
+        log(msg.find((l) => /Error:/.test(l)) || msg.pop() || 'Erro desconhecido', 'err');
+        if (!py) log('Não foi possível carregar o Python. Verifique a conexão e tente de novo.', 'err');
+      } finally {
+        btn.disabled = false; $('[data-run-l]').textContent = 'Executar de novo';
+      }
+    }
+    $('[data-run]').addEventListener('click', executar);
+
+    function mostrar(r: any) {
+      ultimoHtml = r.html;
+      const rep = $('[data-rep]'); rep.hidden = false;
+      const cresc = r.crescimento_ultimo_mes;
+      $('[data-kp]').innerHTML = [
+        ['Faturamento', brl0(r.faturamento), `${r.periodo.inicio.split('-').reverse().join('/')} a ${r.periodo.fim.split('-').reverse().join('/')}`],
+        ['Pedidos', r.pedidos.toLocaleString('pt-BR'), `${Object.values(r.problemas).reduce((a: number, b: any) => a + b, 0)} linhas descartadas na limpeza`],
+        ['Ticket médio', brl(r.ticket_medio), `melhor dia: ${r.melhor_dia}`],
+        ['Último mês', cresc == null ? '—' : `${cresc > 0 ? '+' : ''}${cresc.toLocaleString('pt-BR')}%`, 'vs. mês anterior'],
+      ].map(([a, b, c], i) => `<article class="${i === 3 && cresc != null ? (cresc < 0 ? 'neg' : 'pos') : ''}"><p>${a}</p><b>${b}</b><span>${c}</span></article>`).join('');
+      const max = Math.max(...r.por_mes.map((m: any) => m.valor));
+      const mb = $('[data-mbars]');
+      mb.setAttribute('aria-label', 'Faturamento por mês: ' + r.por_mes.map((m: any) => `${m.rotulo} ${brl0(m.valor)}`).join(', '));
+      mb.innerHTML = r.por_mes.map((m: any, i: number) => `<div class="mb" style="--i:${i}"><em>${brl0(m.valor)}</em><i style="--h:${(m.valor / max) * 100}%"></i><span>${m.rotulo.split('/')[0]}</span></div>`).join('');
+      $('[data-prod]').innerHTML = r.top_produtos.map((p: any, i: number) => `<li style="--i:${i}"><div><span>${esc(p.nome)}</span><b>${brl0(p.valor)}</b></div><i style="--w:${(p.valor / r.top_produtos[0].valor) * 100}%"></i></li>`).join('');
+      $('[data-cli]').innerHTML = r.top_clientes.map((c: any) => `<li><span>${esc(c.nome)}</span><b>${brl0(c.valor)}</b><small>${c.pct.toLocaleString('pt-BR')}%</small></li>`).join('');
+      $('[data-alerts]').innerHTML = r.alertas.map((a: string) => `<li>${esc(a)}</li>`).join('');
+      $('[data-pay]').innerHTML = '<p class="mut small">Formas de pagamento</p><div class="paybar">' + r.pagamentos.map((p: any, i: number) => `<span style="--w:${p.pct}%;--c:${['#ffcc00', '#00a3d9', '#e6007e', '#8b949e'][i % 4]}" title="${esc(p.nome)}: ${p.pct}%"></span>`).join('') + '</div><ul class="paylg">' + r.pagamentos.map((p: any, i: number) => `<li><i style="background:${['#ffcc00', '#00a3d9', '#e6007e', '#8b949e'][i % 4]}"></i>${esc(p.nome)} ${p.pct.toLocaleString('pt-BR')}%</li>`).join('') + '</ul>';
+      rep.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    }
+
+    $('[data-dl]').addEventListener('click', () => {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([ultimoHtml], { type: 'text/html' }));
+      a.download = 'relatorio-vendas.html'; a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+    });
+  </script>
+</Demo>
+
+<style is:global>
+  .au {
+    --bg: #0d1117; --panel: #161b22; --line: #30363d; --fg: #e6edf3; --mut: #8b949e; --acc: #ffcc00; --ok: #3fb950; --err: #f85149;
+    background: var(--bg); color: var(--fg); font-family: Inter, system-ui, sans-serif; font-size: 15px; line-height: 1.55;
+    padding: clamp(20px, 4vw, 56px); display: grid; gap: 24px; min-height: calc(100vh - 34px);
+  }
+  .embed .au { min-height: 100vh; }
+  .au h1, .au h2, .au h3, .au p { margin: 0; }
+  .au .mono { font-family: 'JetBrains Mono', monospace; }
+  .au .mut { color: var(--mut); }
+  .au .small { font-size: 13px; }
+  .au-head { display: grid; gap: 14px; max-width: 900px; }
+  .kick { color: var(--acc); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: .12em; }
+  .au-head h1 { font-size: clamp(28px, 3.6vw, 48px); line-height: 1.06; letter-spacing: -.03em; }
+  .lead { color: var(--mut); max-width: 70ch; }
+  .flow { list-style: none; padding: 0; margin: 6px 0 0; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font-weight: 500; }
+  .flow b { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--acc); color: #111; font-size: 13px; margin-right: 4px; }
+  .flow li[aria-hidden] { color: var(--mut); }
+  .grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+  .panel > header { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .panel h2 { font: 500 14px 'JetBrains Mono', monospace; display: flex; align-items: center; gap: 8px; }
+  .panel h3 { font-size: 14px; font-weight: 600; }
+  .panel header a { font-size: 12.5px; }
+  .dot { width: 10px; height: 10px; border-radius: 3px; }
+  .dot.y { background: #3fb950; } .dot.b { background: #3572a5; box-shadow: 4px 4px 0 #ffd43b; }
+  .tbl-w { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
+  .tbl { border-collapse: collapse; width: 100%; font: 12.5px 'JetBrains Mono', monospace; white-space: nowrap; }
+  .tbl th { text-align: left; background: #1f2630; color: var(--mut); font-weight: 500; padding: 7px 10px; position: sticky; top: 0; }
+  .tbl td { padding: 6px 10px; border-top: 1px solid #21262d; }
+  .tbl tr:nth-child(even) td { background: #ffffff04; }
+  .panel-a { display: flex; gap: 8px; flex-wrap: wrap; }
+  .hint { font-size: 12.5px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; border: 0; background: var(--acc); color: #111; font-weight: 600; border-radius: 10px; padding: 9px 14px; cursor: pointer; text-decoration: none; font-size: 14px; }
+  .btn.ghost { background: transparent; color: var(--fg); box-shadow: inset 0 0 0 1px var(--line); }
+  .btn.ghost:hover { box-shadow: inset 0 0 0 1px var(--mut); }
+  .file { position: relative; }
+  .file input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+  .file:focus-within { outline: 2px solid var(--acc); outline-offset: 2px; }
+  .src { margin: 0; max-height: 380px; overflow: auto; font: 12.5px/1.6 'JetBrains Mono', monospace; color: #c9d1d9; background: #0d1117; border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; tab-size: 4; }
+  .src .k { color: #ff7b72; } .src .s { color: #a5d6ff; } .src .c { color: #8b949e; font-style: italic; } .src .n { color: #79c0ff; }
+  .run { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .go { display: inline-flex; align-items: center; gap: 10px; background: var(--acc); color: #111; border: 0; border-radius: 12px; padding: 16px 24px; font-weight: 700; font-size: 16px; cursor: pointer; box-shadow: 0 10px 30px -10px #ffcc0088; transition: transform .2s; }
+  .go:hover:not(:disabled) { transform: translateY(-2px); }
+  .go:disabled { opacity: .7; cursor: progress; }
+  .term { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #010409; }
+  .term header { display: flex; gap: 6px; align-items: center; padding: 9px 12px; background: var(--panel); border-bottom: 1px solid var(--line); }
+  .term header span { width: 10px; height: 10px; border-radius: 50%; background: #30363d; }
+  .term header b { margin-left: 8px; font-weight: 400; font-size: 12px; color: var(--mut); }
+  .out { margin: 0; padding: 14px 16px; font: 12.5px/1.6 'JetBrains Mono', monospace; color: #c9d1d9; max-height: 420px; overflow: auto; white-space: pre; }
+  .out .ok { color: var(--ok); } .out .err { color: var(--err); } .out .mut { color: var(--mut); }
+  .rep { display: grid; gap: 16px; scroll-margin-top: 16px; }
+  .rep[hidden] { display: none; }
+  .rep-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .rep-head h2 { font-size: 24px; letter-spacing: -.02em; }
+  .kp { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .kp article { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: grid; gap: 2px; animation: up .5s cubic-bezier(.2, .8, .2, 1) both; }
+  .kp article:nth-child(2) { animation-delay: .06s; } .kp article:nth-child(3) { animation-delay: .12s; } .kp article:nth-child(4) { animation-delay: .18s; }
+  @keyframes up { from { opacity: 0; transform: translateY(10px); } }
+  .kp p { color: var(--mut); font-size: 13px; }
+  .kp b { font-size: 26px; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .kp span { color: var(--mut); font-size: 12.5px; }
+  .kp .pos b { color: var(--ok); } .kp .neg b { color: var(--err); }
+  .rep-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 16px; }
+  .mbars { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 6px; height: 200px; align-items: end; }
+  .mb { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; gap: 4px; position: relative; }
+  .mb i { width: 100%; height: var(--h); background: linear-gradient(#ffcc00, #f59e0b); border-radius: 5px 5px 2px 2px; transform-origin: bottom; animation: grow .8s cubic-bezier(.2, .8, .2, 1) both; animation-delay: calc(var(--i) * 40ms); }
+  @keyframes grow { from { transform: scaleY(0); } }
+  .mb span { font-size: 11px; color: var(--mut); }
+  .mb em { font: 10.5px 'JetBrains Mono', monospace; color: var(--mut); writing-mode: vertical-rl; transform: rotate(180deg); opacity: 0; transition: opacity .2s; position: absolute; bottom: calc(var(--h, 0%) + 24px); }
+  .mb:hover em { opacity: 1; }
+  .hbars { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+  .hbars div { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 5px; }
+  .hbars b { font-variant-numeric: tabular-nums; }
+  .hbars i { display: block; height: 8px; border-radius: 4px; background: #21262d; position: relative; overflow: hidden; }
+  .hbars i::after { content: ''; position: absolute; inset: 0 auto 0 0; width: var(--w); background: #00a3d9; border-radius: 4px; animation: wid .9s cubic-bezier(.2, .8, .2, 1) both; animation-delay: calc(var(--i) * 60ms); }
+  @keyframes wid { from { width: 0; } }
+  .rank { margin: 0; padding: 0 0 0 22px; display: grid; gap: 8px; }
+  .rank li { padding-left: 4px; }
+  .rank li::marker { color: var(--mut); font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+  .rank span { display: inline-block; min-width: 55%; }
+  .rank small { color: var(--mut); margin-left: 8px; }
+  .alerts { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .alerts li { background: #2d2207; border: 1px solid #5c4813; color: #f2cc60; border-radius: 10px; padding: 9px 12px; font-size: 14px; }
+  .pay { display: grid; gap: 8px; margin-top: 6px; }
+  .paybar { display: flex; height: 10px; border-radius: 5px; overflow: hidden; gap: 2px; }
+  .paybar span { width: var(--w); background: var(--c); }
+  .paylg { list-style: none; padding: 0; margin: 0; display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; color: var(--mut); }
+  .paylg i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 6px; }
+  @media (max-width: 900px) { .grid, .rep-grid { grid-template-columns: 1fr; } .kp { grid-template-columns: 1fr 1fr; } }
+</style>

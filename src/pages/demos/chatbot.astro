@@ -1,0 +1,162 @@
+---
+import Demo from '../../layouts/Demo.astro';
+import '../../styles/chatbot.css';
+const exemplos = [
+  'oi, boa tarde!',
+  'quanto custa 1000 panfletos?',
+  'preciso de um banner 3x1 urgente',
+  'vcs aceitam pix?',
+  'como mando o arquivo?',
+  'nao tenho logo, vcs criam?',
+  'entregam em casa?',
+  'quero falar com uma pessoa',
+];
+---
+<Demo
+  title="Rê · Atendente virtual para gráficas (demo)"
+  description="Chatbot de atendimento que tira dúvidas e faz orçamento, rodando no navegador. Demo do portfólio de Sidnei Rodrigues."
+  fonts="family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500"
+  theme="#0c1317"
+>
+  <main class="cbp" id="conteudo">
+    <section class="intro">
+      <p class="kick">Demo · Chatbot de atendimento</p>
+      <h1>A Rê atende, tira dúvidas e fecha o orçamento sozinha.</h1>
+      <p class="lead">
+        Converse como se fosse um cliente da gráfica. Ao lado, você vê o que o bot entendeu de cada mensagem:
+        a intenção, a confiança e os dados que ele extraiu do texto.
+      </p>
+      <div class="ex">
+        <p class="mono small">Experimente</p>
+        <div class="ex-list">
+          {exemplos.map((e) => <button type="button" class="ex-b" data-ex={e}>{e}</button>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="phone" aria-label="Simulação de conversa">
+      <div class="ph-top">
+        <span class="av" aria-hidden="true">Rê</span>
+        <div><b>Gráfica Retícula</b><small>atendimento automático · online</small></div>
+      </div>
+      <div class="cb" id="cb-full"></div>
+    </section>
+
+    <aside class="brain" aria-label="Análise da última mensagem">
+      <p class="mono small">Por dentro do bot</p>
+      <div class="card">
+        <p class="mono k">intenção</p>
+        <p class="intent" data-intent>aguardando mensagem…</p>
+        <div class="bars" data-bars></div>
+      </div>
+      <div class="card">
+        <p class="mono k">entidades extraídas</p>
+        <dl class="ents" data-ents><div><dt>produto</dt><dd>—</dd></div><div><dt>quantidade</dt><dd>—</dd></div><div><dt>medidas</dt><dd>—</dd></div><div><dt>urgência</dt><dd>—</dd></div></dl>
+      </div>
+      <div class="card">
+        <p class="mono k">evento</p>
+        <pre class="ev" data-ev>{'{ }'}</pre>
+      </div>
+      <p class="note">
+        Esta versão roda inteira no navegador, sem custo de API. Num cliente real, a mesma estrutura pode receber um modelo
+        de linguagem (nuvem ou local) e ser ligada ao WhatsApp, mantendo as regras de preço sob controle.
+      </p>
+    </aside>
+  </main>
+
+  <script>
+    import { createBot } from '../../scripts/chatbot.js';
+    const $ = (s: string) => document.querySelector(s) as HTMLElement;
+    const nomes: Record<string, string> = { saudacao: 'saudação', orcamento: 'orçamento', prazo: 'prazo', arquivo: 'arquivo', criacao: 'criação de arte', pagamento: 'pagamento', entrega: 'entrega', horario: 'horário/local', humano: 'falar com humano', obrigado: 'agradecimento', desconhecido: 'não reconhecida' };
+    const prodNome: Record<string, string> = { cartao: 'cartão de visita', panfleto: 'panfleto', adesivo: 'adesivo', banner: 'banner' };
+
+    function ents(e: any) {
+      if (!e) return;
+      const rows: [string, string][] = [
+        ['produto', e.produto ? prodNome[e.produto] : '—'],
+        ['quantidade', e.qtd ? e.qtd.toLocaleString('pt-BR') : '—'],
+        ['medidas', e.medidas ? e.medidas.map((v: number) => v.toFixed(2).replace('.', ',')).join(' x ') + ' m' : '—'],
+        ['urgência', e.expresso ? 'sim' : '—'],
+      ];
+      $('[data-ents]').innerHTML = rows.map(([k, v]) => `<div><dt>${k}</dt><dd class="${v !== '—' ? 'on' : ''}">${v}</dd></div>`).join('');
+    }
+
+    const bot = createBot($('#cb-full'), {
+      onAnalise(a: any) {
+        const ev = { ...a }; delete ev.scores; if (typeof ev.confianca === 'number') ev.confianca = +ev.confianca.toFixed(2);
+        if (ev.resultado) ev.resultado = { total: ev.resultado.total, prazo: ev.resultado.prazo.nome };
+        $('[data-ev]').textContent = JSON.stringify(ev, null, 2);
+        if (a.tipo === 'intent') {
+          $('[data-intent]').innerHTML = `${nomes[a.intent]} <span>${Math.round(a.confianca * 100)}%</span>`;
+          const top = Object.entries(a.scores as Record<string, number>).sort((x, y) => y[1] - x[1]).slice(0, 4);
+          const max = Math.max(1, ...top.map(([, v]) => v));
+          $('[data-bars]').innerHTML = top.map(([k, v]) => `<div class="bar"><span>${nomes[k]}</span><i style="--w:${(v / max) * 100}%"></i><b>${v.toFixed(1)}</b></div>`).join('');
+          ents(a.ent);
+        } else if (a.tipo === 'fluxo') {
+          $('[data-intent]').innerHTML = `resposta do orçamento <span>etapa: ${a.etapa}</span>`;
+          $('[data-bars]').innerHTML = '';
+          ents(a.ent);
+        } else if (a.tipo === 'botao') {
+          $('[data-intent]').innerHTML = `botão tocado <span>${a.cmd}</span>`;
+          $('[data-bars]').innerHTML = '';
+        }
+      },
+    });
+    document.querySelectorAll<HTMLButtonElement>('[data-ex]').forEach((b) => b.addEventListener('click', () => bot.enviar(b.dataset.ex!)));
+  </script>
+</Demo>
+
+<style is:global>
+  .cbp {
+    --bg: #0c1317; --panel: #111b21; --line: #ffffff14; --fg: #e9edef; --mut: #8696a0; --acc: #25d366;
+    background: var(--bg); color: var(--fg); font-family: Inter, system-ui, sans-serif; min-height: calc(100vh - 34px);
+    display: grid; grid-template-columns: minmax(0, 1fr) 390px minmax(0, 1fr); gap: clamp(20px, 3vw, 44px);
+    padding: clamp(20px, 4vw, 56px); align-items: start;
+  }
+  .cbp .mono { font-family: 'IBM Plex Mono', monospace; }
+  .cbp .small { font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--mut); margin: 0 0 10px; }
+  .cbp p { margin: 0; }
+  .intro { display: grid; gap: 18px; padding-top: 12px; }
+  .kick { color: var(--acc); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: .12em; }
+  .intro h1 { margin: 0; font-size: clamp(28px, 2.8vw, 42px); line-height: 1.08; letter-spacing: -.03em; }
+  .lead { color: var(--mut); line-height: 1.6; }
+  .ex-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ex-b { background: var(--panel); color: var(--fg); border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; cursor: pointer; font-size: 14px; text-align: left; transition: border-color .2s, transform .2s; }
+  .ex-b:hover { border-color: var(--acc); transform: translateY(-1px); }
+  .phone {
+    height: min(760px, calc(100dvh - 120px)); min-height: 520px; border-radius: 36px; border: 8px solid #1f2c33; background: #0b141a; overflow: hidden;
+    display: flex; flex-direction: column; box-shadow: 0 40px 100px -30px #000, 0 0 0 1px #ffffff10; position: sticky; top: 20px;
+    --cb-bg: #0b141a; --cb-fg: #e9edef; --cb-bot: #202c33; --cb-user: #005c4b; --cb-user-fg: #e9edef; --cb-acc: #25d366; --cb-line: #ffffff1c;
+  }
+  .phone .cb { flex: 1; min-height: 0; background-image: radial-gradient(#ffffff06 1px, transparent 1px); background-size: 18px 18px; }
+  .phone .cb-orc { background: #111b21; }
+  .ph-top { display: flex; gap: 10px; align-items: center; padding: 14px 16px; background: #202c33; }
+  .ph-top div { display: grid; line-height: 1.3; }
+  .ph-top small { color: var(--mut); font-size: 12px; }
+  .av { width: 38px; height: 38px; border-radius: 50%; background: #ffcc00; color: #111; display: grid; place-items: center; font-weight: 700; }
+  .brain { display: grid; gap: 12px; padding-top: 12px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: grid; gap: 10px; }
+  .k { font-size: 11px; color: var(--mut); text-transform: uppercase; letter-spacing: .12em; }
+  .intent { font-size: 20px; font-weight: 600; display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+  .intent span { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--acc); font-weight: 500; }
+  .bars { display: grid; gap: 6px; }
+  .bar { display: grid; grid-template-columns: 110px 1fr 34px; gap: 8px; align-items: center; font-size: 12.5px; color: var(--mut); }
+  .bar i { height: 6px; border-radius: 3px; background: #ffffff10; position: relative; overflow: hidden; }
+  .bar i::after { content: ''; position: absolute; inset: 0 auto 0 0; width: var(--w); background: var(--acc); border-radius: 3px; transition: width .5s cubic-bezier(.2, .8, .2, 1); }
+  .bar b { font-family: 'IBM Plex Mono', monospace; font-weight: 400; text-align: right; }
+  .ents { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .ents dt { font-size: 11.5px; color: var(--mut); }
+  .ents dd { margin: 2px 0 0; font-weight: 600; color: #ffffff55; }
+  .ents dd.on { color: var(--fg); }
+  .ev { margin: 0; font: 12px/1.5 'IBM Plex Mono', monospace; color: #9fe7c0; white-space: pre-wrap; max-height: 180px; overflow: auto; }
+  .note { font-size: 13px; color: var(--mut); line-height: 1.6; }
+  @media (max-width: 1180px) {
+    .cbp { grid-template-columns: minmax(0, 1fr) 380px; }
+    .brain { grid-column: 1 / -1; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  }
+  @media (max-width: 760px) {
+    .cbp { grid-template-columns: 1fr; }
+    .phone { position: relative; top: 0; height: 600px; border-width: 6px; border-radius: 28px; }
+  }
+  .embed .cbp { min-height: 100vh; }
+</style>
